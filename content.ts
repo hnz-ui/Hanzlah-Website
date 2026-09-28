@@ -4,26 +4,28 @@
 // ─────────────────────────────────────────────────────────────
 
 export const site = {
+  // Your CV says "Muhammad Hanzlah Malik" — using the short form you go by.
   name: "Hanzlah Malik",
-  role: "Product Marketing Executive",
+  role: "Product Marketer",
   // One sentence. What you do, for whom, and the outcome.
   tagline:
-    "I run product marketing for B2B software — outbound and ABM, LinkedIn ads, launches and positioning. I also build the websites and landing pages the campaigns point at.",
-  // TODO: confirm — I inferred this. Change or delete it.
+    "Product marketing across RegTech, FinTech, KYC/AML, healthcare and a standalone AI product — outbound and ABM, LinkedIn ads, and the research that shapes the roadmap. I design and build the websites too.",
   location: "Lahore, Pakistan",
-  email: "marketing@amlwatcher.com",
+  email: "hanzlah.malik@outlook.com",
+  // Not shown on the site. Uncomment the entry in `socials` below to publish it.
+  phone: "+92 302 4178095",
   // Used for <title>, Open Graph, and the browser tab.
-  seoTitle: "Hanzlah Malik — Product Marketing Executive",
+  seoTitle: "Hanzlah Malik — Product Marketer",
   seoDescription:
-    "Product marketing, outbound and ABM, LinkedIn ads, and websites for B2B SaaS. Currently at MPro, working on AML Watcher and Notiro.",
+    "Product marketing for B2B SaaS — outbound and ABM, LinkedIn ads, product research and websites. Currently at Market Pro across RegTech, KYC/AML, healthcare and AI products.",
   // Set this once you connect your domain, e.g. "https://hanzlahmalik.com"
   url: "https://example.com",
 };
 
 export const about = [
-  "I'm a product marketing executive at MPro, where I work across AML Watcher and Notiro. Most of what I do sits at the point where research, outreach and paid meet the website — the list, the sequence, the ad audience and the landing page are all built from the same brief, by the same person.",
-  "On AML Watcher that means running cold email out of Apollo and Salesforce while running LinkedIn ads against the same account lists, so outreach and paid land on the same buyers at the same time. On Notiro it means the social and community side, Sales Navigator outreach into healthcare, and the product marketing and website work behind it.",
-  "The part people don't expect is that I build the pages too. Not just the brief and the copy — the structure, the design and the front end. This site is a Next.js app I wrote and deployed myself, and it's the same way I approach landing pages and product sections at work.",
+  "I'm a product marketer at Market Pro, working across a portfolio of SaaS products — RegTech, FinTech, KYC/AML, healthcare, and a standalone LLM-based AI tool. The common thread is stakeholder communication: keeping product, content, SEO and PPC pointed at the same thing.",
+  "Most of my day sits where research, outreach and paid meet the website. On the KYC/AML and AI products that means cold email out of Apollo and Instantly alongside LinkedIn ads on the same accounts, so outreach and paid reach the same buyers together. Product research feeds the roadmap and the positioning, and what I learn there goes straight into the pages.",
+  "The part people don't expect is that I build the pages too. I design website enhancements in Figma, turn research into user flows and layouts, manage the updates end to end, and then watch what actually happens in GA4. For my final-year project I took a SaaS platform from research all the way to a deployed, working product — and this site is a Next.js app I wrote and deployed myself.",
 ];
 
 export type Project = {
@@ -38,12 +40,12 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "AML Watcher — outbound and ads as one ABM motion",
+    title: "Outbound and ads as one ABM motion",
     year: "Current",
     summary:
-      "Compliance and AML screening software sold into regulated financial institutions. I run the outbound side and the LinkedIn ads against the same account lists, so the cold email and the paid impressions reach the same buying committee together rather than as two separate campaigns.",
+      "For the KYC/AML and AI products, the cold email and the LinkedIn ads run against the same account lists — so the sequence and the paid impressions reach the same buying committee together rather than as two disconnected campaigns.",
     outcomes: [
-      "Pull and clean prospect and company data from Apollo, Salesforce and LinkedIn Sales Navigator, then segment by industry, region and role",
+      "Pull and clean prospect and company data from Apollo, Instantly and LinkedIn Sales Navigator, then segment by industry, region and role",
       "Write the email copy and sequences, run the campaigns and handle the follow-ups",
       "Build matching LinkedIn audiences from the same lists and run ads alongside the email sequence",
       "Track response, engagement and campaign performance, then adjust the lists, copy and targeting",
@@ -51,44 +53,67 @@ export const projects: Project[] = [
     tags: ["ABM", "Outbound", "LinkedIn Ads"],
   },
   {
-    title: "Notiro — product marketing, community and web",
+    title: "Product research into roadmap and positioning",
     year: "Current",
     summary:
-      "A healthcare product where the audience lives in communities rather than ad platforms. I own the social and community side, the outreach, and the product marketing and website work that sits behind it.",
+      "Research that has somewhere to go. Market, competitor and platform research informs what gets built and how it's described — then the same insight lands in the site's user flows and page layouts rather than sitting in a deck.",
     outcomes: [
-      "Positioning, feature communication and launches",
-      "Community engagement on LinkedIn and healthcare-focused communities, plus Sales Navigator outreach to decision makers who fit the ICP",
-      "Plan, create and publish the social content — product, educational, feature and brand posts",
-      "Build and maintain website pages, CTAs and feature sections, and review them for content, UX and SEO gaps",
-      "Work with the Content and SEO teams, and keep the external Notiro team aligned on the work assigned to them",
+      "Lead product research feeding roadmap and positioning decisions across the portfolio",
+      "Manage stakeholder communication across RegTech, FinTech, KYC/AML, healthcare and AI products",
+      "Identify blog topics and align with the content, SEO and PPC teams on campaign strategy",
+      "Positioning, feature communication and launch messaging",
     ],
-    tags: ["Product Marketing", "Community", "Web"],
+    tags: ["Product Marketing", "Research", "Positioning"],
   },
   {
-    title: "Websites and landing pages",
-    year: "Ongoing",
+    title: "Websites — design, build and measure",
+    year: "Current",
     summary:
-      "I build the pages, not just the brief for them. Structure, copy, design and the front-end build — across AML Watcher, Notiro and Barie, and including this site.",
+      "I build the pages, not just the brief for them. Design in Figma, translate research into user flows and layouts, manage the updates end to end, then track behaviour in GA4 and act on it.",
     outcomes: [
-      "Create, update and manage website pages, product sections, CTAs and landing pages",
-      "Write the page copy and design the supporting assets",
-      "Review live sites to find improvements in content, UX, CTAs and SEO",
+      "Design website enhancements in Figma and turn research insight into improved user flows and page layouts",
+      "Manage website updates end-to-end — pages, product sections, CTAs and landing pages",
+      "Track performance and user behaviour in GA4, and review for content, UX and SEO gaps",
       "Build in Next.js and Tailwind and deploy on Vercel — this site is one of them",
     ],
-    tags: ["Web", "Design", "Next.js"],
+    tags: ["Web", "Figma", "GA4", "Next.js"],
   },
   {
-    title: "Barie 2.0 — relaunch campaign",
-    year: "Earlier",
+    title: "Community, influencer and launch campaigns",
+    year: "Current",
     summary:
-      "Ran the launch campaign for the Barie 2.0 relaunch on Product Hunt and the other launch platforms, with the social, community and influencer push around it.",
+      "Audience growth for products whose buyers live in communities rather than ad platforms — particularly the standalone AI product, where Reddit and Discord do more than paid ever could.",
     outcomes: [
-      "Owned the Product Hunt launch and the surrounding platform pushes",
-      "Ran the content calendar and posting schedule, boosted posts on Instagram and managed the boost budget",
-      "Placed posts through community leaders on Reddit, Discord, Quora, Medium, LinkedIn and Facebook groups",
-      "Handled directory and listing registrations, and influencer outreach with the follow-up",
+      "Run community engagement for the AI product across Reddit, Discord and other platforms, driving audience growth and product visibility",
+      "Run influencer marketing initiatives end to end, from finding creators through to follow-up",
+      "Managed the Barie 2.0 relaunch campaign on Product Hunt and the other launch platforms",
+      "Plan and publish social content, and manage the calendar and boost budget behind it",
     ],
-    tags: ["Launch", "Community", "Social"],
+    tags: ["Community", "Influencer", "Launch"],
+  },
+];
+
+export type SideProject = {
+  title: string;
+  note?: string;
+  summary: string;
+  tags: string[];
+};
+
+export const sideProjects: SideProject[] = [
+  {
+    title: "OPANO",
+    note: "Final-year project",
+    summary:
+      "A SaaS platform streamlining communication, HR management and document storage for SMEs. I ran the research and feasibility study — market trends, competitor products and user needs — to shape its AI-driven features, then built and deployed the full working product, taking it from concept to a functioning platform.",
+    tags: ["SaaS", "Research", "Built & deployed"],
+  },
+  {
+    title: "Exconnect",
+    note: "Runner-up, All Punjab Innovation Expo",
+    summary:
+      "A marketplace connecting Pakistani small industries — textile companies first — with international buyers. Covered idea validation, business plan and model analysis, a full business model canvas, and the go-to-market strategy.",
+    tags: ["Marketplace", "GTM", "Business model"],
   },
 ];
 
@@ -99,29 +124,55 @@ export type Role = {
   detail: string;
 };
 
-// TODO: swap the `period` values for real dates (e.g. "2024 — Present").
-// I don't have your start dates, so these are phase labels for now.
 export const experience: Role[] = [
   {
-    company: "MPro",
-    title: "Product Marketing Executive",
-    period: "Present",
+    company: "Market Pro",
+    title: "Product Marketer",
+    period: "Sept 2025 — Present",
     detail:
-      "Own the outbound and ABM motion on AML Watcher — cold email out of Apollo and Salesforce, LinkedIn ads on the same accounts — plus the product marketing, community, outreach and website work on Notiro. Research runs underneath all of it: accounts, competitors and platforms get checked before a list, campaign or page is built. I also manage the interns across the products, setting their priorities and reviewing the work through to close.",
+      "Manage stakeholder communication across multiple SaaS products — RegTech, FinTech, KYC/AML, healthcare and a standalone LLM-based AI tool. Run cold email outreach for the AI and KYC products through Apollo and Instantly, and prospect via LinkedIn Sales Navigator. Lead product research informing roadmap and positioning, design website enhancements in Figma, manage site updates end to end and track behaviour in GA4. Plan and execute LinkedIn Ads, run influencer marketing, and manage community engagement on Reddit and Discord. I also manage the interns across the products.",
   },
   {
-    company: "Barie, AML Watcher & Media Watcher",
-    title: "Earlier scope at MPro",
-    period: "Earlier",
+    company: "TSoftek",
+    title: "Business Development Executive",
+    period: "May 2025 — Sept 2025",
     detail:
-      "The same kind of work across three more products: social media and the content calendar, community engagement and influencer outreach, LinkedIn ads and audience lists, cold email, and HubSpot automation — workflows, email flows, sequences and newsletters. On the product side, website builds and page copy, design, GTM support, monthly reporting, client communication, agency coordination, and sales enablement collateral including pitch decks, flyers and case studies.",
+      "Part-time alongside my degree. Identified high-potential Upwork projects through client research and wrote tailored proposals — 14 meetings and 3 client conversions in a single month. Managed the full engagement process from scheduling through negotiating terms to closing.",
   },
   {
-    company: "Before MPro",
-    title: "Business Development & Client Success",
-    period: "Earlier",
+    company: "Accountaxpert",
+    title: "Sales Associate",
+    period: "Dec 2024 — May 2025",
     detail:
-      "A mix of sales and customer success — client communication on live projects and onboarding, cold email campaigns run end to end with the prospect lists behind them, LinkedIn and Sales Navigator outreach to service providers, social account management, and business development through Upwork and other freelance profiles, writing the proposals and handling what followed. Also edited and managed video in CapCut Pro.",
+      "Part-time alongside my degree. Handled inbound inquiries from Meta and supported outbound sales, matching client needs to our offering, preparing proposals and closing — $5,350 in sales over six months. Maintained CRM records, worked with marketing on campaign execution, and generated and qualified leads through LinkedIn Sales Navigator, Crunchbase and data-scraping tools for targeted email campaigns.",
+  },
+  {
+    company: "Ningbo Green Light Energy",
+    title: "Sales Intern",
+    period: "June 2023 — Aug 2023",
+    detail:
+      "The exclusive importer of Canadian Solar inverters from China. Managed incoming leads from Meta, provided product detail, and prepared and negotiated quotations — roughly Rs 8 million of inverters sold over the internship.",
+  },
+  {
+    company: "Apna House",
+    title: "Business Developer Intern",
+    period: "May 2022 — Aug 2022",
+    detail:
+      "Supported client relationship management and architect collaboration, keeping onboarding and communication between clients and the platform running smoothly, and helped expand the client base through sales support and process optimisation.",
+  },
+];
+
+export type Education = {
+  school: string;
+  degree: string;
+  period: string;
+};
+
+export const education: Education[] = [
+  {
+    school: "Information Technology University, Lahore",
+    degree: "BS Management & Technology",
+    period: "Sept 2021 — Sept 2025",
   },
 ];
 
@@ -132,57 +183,78 @@ export const capabilities: Capability[] = [
     group: "Outbound & ABM",
     items: [
       "Cold email campaigns end to end",
-      "Lead research & list building",
+      "Lead generation & list building",
+      "LinkedIn Sales Navigator prospecting",
       "ICP segmentation",
-      "Sales Navigator outreach",
     ],
   },
   {
-    group: "Paid & social",
+    group: "Paid, social & community",
     items: [
-      "LinkedIn ads & audience building",
-      "Campaign performance tracking",
+      "LinkedIn Ads & audience building",
+      "Community engagement (Reddit, Discord)",
+      "Influencer marketing",
       "Social content & calendars",
-      "Community engagement",
     ],
   },
   {
     group: "Product marketing",
     items: [
+      "Product & market research",
       "Positioning & feature communication",
+      "Stakeholder management",
       "Launches & launch platforms",
-      "Sales enablement collateral",
-      "Case studies & reporting",
     ],
   },
   {
-    group: "Websites & content",
+    group: "Web, design & analytics",
     items: [
+      "Figma design & user flows",
       "Landing pages & product sections",
-      "Page copy & design",
-      "CRO, UX & SEO review",
+      "GA4 tracking & behaviour analysis",
       "Next.js & Tailwind builds",
+    ],
+  },
+  {
+    group: "Sales",
+    items: [
+      "B2B sales & closing",
+      "Proposal writing",
+      "Objection handling",
+      "Client communication",
+    ],
+  },
+  {
+    group: "Content",
+    items: [
+      "Content strategy",
+      "Blog topic research",
+      "SEO & PPC alignment",
+      "Sales enablement collateral",
     ],
   },
 ];
 
 export const tools = [
   "Apollo",
-  "Salesforce",
-  "HubSpot",
+  "Instantly",
+  "HubSpot CRM",
+  "Zoho CRM",
   "LinkedIn Sales Navigator",
   "LinkedIn Ads",
-  "Product Hunt",
-  "Next.js",
+  "GA4",
   "Figma",
-  "CapCut Pro",
+  "Power BI",
+  "Canva",
+  "Next.js",
 ];
 
 export const socials = [
-  { label: "Email", href: "mailto:marketing@amlwatcher.com" },
+  { label: "Email", href: "mailto:hanzlah.malik@outlook.com" },
+  // TODO: replace with your real LinkedIn URL.
   { label: "LinkedIn", href: "https://linkedin.com/in/your-handle" },
-  { label: "GitHub", href: "https://github.com/your-handle" },
-  { label: "X", href: "https://x.com/your-handle" },
+  // Uncomment to publish your phone number on the site:
+  // { label: "Phone", href: "tel:+923024178095" },
 ];
 
 // Drop a PDF at public/resume.pdf to make this work, or set to null to hide.

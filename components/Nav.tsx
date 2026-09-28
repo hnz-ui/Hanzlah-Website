@@ -1,9 +1,10 @@
 import { site } from "@/content";
 
+// `wide` links are dropped on narrow screens so the bar never has to scroll.
 const links = [
-  { label: "About", href: "#about" },
+  { label: "About", href: "#about", wide: true },
   { label: "Work", href: "#work" },
-  // Dropped on the narrowest screens so the bar never has to scroll.
+  { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience", wide: true },
   { label: "Contact", href: "#contact" },
 ];
@@ -18,7 +19,7 @@ export default function Nav() {
         >
           {site.name}
         </a>
-        <ul className="flex shrink-0 items-center gap-4 text-sm text-ink-2 sm:gap-7">
+        <ul className="flex shrink-0 items-center gap-4 text-sm text-ink-2 sm:gap-6">
           {links.map((l) => (
             <li key={l.href} className={l.wide ? "hidden sm:block" : ""}>
               <a href={l.href} className="link-underline hover:text-ink">

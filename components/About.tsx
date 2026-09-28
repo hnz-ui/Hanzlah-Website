@@ -12,7 +12,7 @@ export default function About() {
         ))}
       </div>
 
-      <div className="reveal mt-14 grid gap-8 sm:grid-cols-2">
+      <div className="reveal mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {capabilities.map((c) => (
           <div key={c.group}>
             <h3 className="eyebrow">{c.group}</h3>
