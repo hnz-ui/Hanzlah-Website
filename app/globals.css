@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* ───────── Design tokens ─────────
+   A minimal, typographic system. Warm paper ground, ink text,
+   one hairline rule weight, one accent used sparingly.          */
+
+:root {
+  --paper: #faf9f7;
+  --paper-2: #f3f1ed;
+  --ink: #171614;
+  --ink-2: #4a4843;
+  --ink-3: #8b8780;
+  --rule: #e2ded7;
+  --accent: #b4522b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #121110;
+    --paper-2: #1a1917;
+    --ink: #f2f0ec;
+    --ink-2: #b6b2ab;
+    --ink-3: #7e7a73;
+    --rule: #2b2926;
+    --accent: #e08356;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-rule: var(--rule);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* keeps anchored sections clear of the sticky header */
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+/* ───────── Small caps section label ───────── */
+.eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+/* ───────── Motion ─────────
+   Both effects are pure CSS and start from the VISIBLE state, so content can
+   never get stuck hidden — no JS, no observer, nothing to fail. `.rise` is a
+   one-shot load-in for above-the-fold copy; `.reveal` is scroll-driven and
+   only engages in browsers that support scroll-linked animations. Everywhere
+   else the element simply sits there, fully legible. */
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: riseIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: riseIn linear both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 60%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .rise,
+  .reveal {
+    animation: none;
+  }
+}
+
+/* ───────── Underline that draws on hover ───────── */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-underline:hover {
+  background-size: 100% 1px;
+}
