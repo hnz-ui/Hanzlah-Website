@@ -22,7 +22,7 @@ Node lives in a non-standard place on this laptop, so the PATH line is needed:
 
 ```bash
 export PATH="$HOME/.local/node/node-v22.23.2-darwin-arm64/bin:$PATH"
-cd ~/Documents/portfolio
+cd ~/Documents/"Hanzlah portfolio website"
 npm run dev
 ```
 
