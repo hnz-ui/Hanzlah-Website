@@ -1,5 +1,6 @@
 import { about, stats } from "@/content";
 import Section from "./Section";
+import Logo from "./Logo";
 
 export default function About() {
   return (
@@ -23,8 +24,8 @@ export default function About() {
           <span className="absolute left-4 top-4 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-accent-ink [writing-mode:vertical-rl]">
             About me
           </span>
-          <span className="display absolute bottom-5 right-6 text-6xl text-accent-ink">
-            HM
+          <span className="absolute bottom-6 right-7 text-accent-ink">
+            <Logo size={72} />
           </span>
         </div>
       </div>

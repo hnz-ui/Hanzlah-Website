@@ -1,4 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#171614"/>
-  <text x="32" y="44" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#faf9f7">H</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -10 84 84">
+  <rect x="-8" y="-10" width="84" height="84" rx="18" fill="#151514"/>
+  <rect x="4" y="10" width="14" height="50" fill="#f1f0ed"/>
+  <rect x="38" y="10" width="14" height="50" fill="#f1f0ed"/>
+  <polygon points="18,40 38,30 38,44 18,54" fill="#f1f0ed"/>
+  <rect x="56" y="2" width="11" height="11" fill="#cfc3fb"/>
 </svg>

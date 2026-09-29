@@ -1,4 +1,5 @@
 import { site } from "@/content";
+import Logo from "./Logo";
 
 const links = [
   { label: "About", href: "#about", wide: true },
@@ -11,8 +12,11 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-rule bg-paper/85 backdrop-blur-md">
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3.5 sm:px-8">
-        <a href="#top" className="display truncate text-lg text-ink">
-          {site.name}
+        <a href="#top" className="flex min-w-0 items-center gap-2.5 text-ink">
+          <Logo size={22} className="shrink-0" />
+          <span className="display truncate text-lg">
+            {site.name.split(" ")[0]}
+          </span>
         </a>
 
         <p className="hidden text-[0.6rem] font-semibold uppercase leading-relaxed tracking-[0.14em] text-ink-3 md:block">
