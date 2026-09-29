@@ -1,9 +1,9 @@
 /**
- * The mark: a soft fin (curve) facing a hard-angled blade (edge),
- * joined by a rising bridge, with a lavender pixel resting in the
- * blade's notch. Abstract first, "H" second — the fin and blade are
- * its two bars, the bridge its crossbar. Ink shapes draw in
- * currentColor so the mark adapts to light/dark automatically.
+ * "The Signal": one continuous square-wave stroke — rise, cross, rise —
+ * climbing up and to the right. It is a signal pulse (Hanzlah → Hz →
+ * hertz), a staircase of growth, and the skeleton of an H in a single
+ * gesture. The lavender pixel is the step not yet climbed. Draws in
+ * currentColor so it adapts to light/dark automatically.
  */
 export default function Logo({
   size = 28,
@@ -20,10 +20,13 @@ export default function Logo({
       aria-hidden
       className={className}
     >
-      <path fill="currentColor" d="M8,6 L24,6 L24,58 C13,50 8,28 8,6 Z" />
-      <path fill="currentColor" d="M40,6 L40,58 L54,58 L54,20 Z" />
-      <polygon fill="currentColor" points="24,36 40,26 40,42 24,52" />
-      <rect x="46" y="5" width="9" height="9" fill="var(--accent)" />
+      <path
+        d="M16,58 L16,38 L48,38 L48,14"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="14"
+      />
+      <rect x="41" y="0" width="11" height="11" fill="var(--accent)" />
     </svg>
   );
 }
