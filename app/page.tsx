@@ -1,6 +1,8 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import WhatIDo from "@/components/WhatIDo";
+import ToolsKit from "@/components/ToolsKit";
 import Work from "@/components/Work";
 import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
@@ -15,6 +17,8 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <WhatIDo />
+        <ToolsKit />
         <Work />
         <Projects />
         <Experience />

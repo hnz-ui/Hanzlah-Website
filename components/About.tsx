@@ -1,44 +1,47 @@
-import { about, capabilities, tools } from "@/content";
+import { about, stats } from "@/content";
 import Section from "./Section";
 
 export default function About() {
   return (
-    <Section id="about" label="About">
-      <div className="max-w-2xl space-y-6">
-        {about.map((para, i) => (
-          <p key={i} className="reveal text-lg leading-relaxed text-ink-2">
-            {para}
-          </p>
-        ))}
+    <Section id="about" eyebrow="Get to know me">
+      <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-20">
+        <div className="space-y-6">
+          {about.map((para, i) => (
+            <p
+              key={i}
+              className="reveal text-xl leading-relaxed text-ink first:font-medium sm:text-2xl [&:not(:first-child)]:text-lg [&:not(:first-child)]:text-ink-2 sm:[&:not(:first-child)]:text-xl"
+            >
+              {para}
+            </p>
+          ))}
+        </div>
+
+        <div
+          className="reveal card relative hidden min-h-64 overflow-hidden bg-accent lg:block"
+          aria-hidden
+        >
+          <span className="absolute left-4 top-4 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-accent-ink [writing-mode:vertical-rl]">
+            About me
+          </span>
+          <span className="display absolute bottom-5 right-6 text-6xl text-accent-ink">
+            HM
+          </span>
+        </div>
       </div>
 
-      <div className="reveal mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {capabilities.map((c) => (
-          <div key={c.group}>
-            <h3 className="eyebrow">{c.group}</h3>
-            <ul className="mt-3 space-y-1.5">
-              {c.items.map((item) => (
-                <li key={item} className="text-sm leading-relaxed text-ink-2">
-                  {item}
-                </li>
-              ))}
-            </ul>
+      <div className="reveal mt-16 grid gap-10 border-t border-rule pt-10 sm:grid-cols-3">
+        {stats.map((s) => (
+          <div key={s.label}>
+            <p className="display text-6xl text-ink">
+              <span
+                className="stat-num"
+                style={{ "--target": s.target } as React.CSSProperties}
+              />
+              <span className="text-4xl">{s.suffix}</span>
+            </p>
+            <p className="mt-2 text-sm font-semibold text-ink-2">{s.label}</p>
           </div>
         ))}
-      </div>
-
-      <div className="reveal mt-14 border-t border-rule pt-6">
-        <h3 className="eyebrow">Tools</h3>
-        <ul className="mt-3 flex flex-wrap gap-x-3 gap-y-2.5">
-          {tools.map((t) => (
-            <li
-              key={t}
-              className="rounded-full border border-rule px-3.5 py-1.5 text-sm text-ink-2"
-            >
-              {t}
-            </li>
-          ))}
-        </ul>
       </div>
     </Section>
   );

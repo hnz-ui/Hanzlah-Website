@@ -1,28 +1,36 @@
 @import "tailwindcss";
 
 /* ───────── Design tokens ─────────
-   A minimal, typographic system. Warm paper ground, ink text,
-   one hairline rule weight, one accent used sparingly.          */
+   Big-grotesk portfolio language: warm gray paper with a film-grain
+   overlay, near-black ink, one lavender accent, hairline card borders. */
 
 :root {
-  --paper: #faf9f7;
-  --paper-2: #f3f1ed;
-  --ink: #171614;
-  --ink-2: #4a4843;
-  --ink-3: #8b8780;
-  --rule: #e2ded7;
-  --accent: #b4522b;
+  --paper: #f2f1ef;
+  --paper-2: #eae9e6;
+  --ink: #151514;
+  --ink-2: #4c4b49;
+  --ink-3: #8a8884;
+  --rule: #d9d7d3;
+  --card-border: rgba(21, 21, 20, 0.18);
+  --tile: #ffffff;
+  --accent: #cfc3fb;
+  --accent-soft: #eae5fd;
+  --accent-ink: #191129;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #121110;
-    --paper-2: #1a1917;
-    --ink: #f2f0ec;
-    --ink-2: #b6b2ab;
-    --ink-3: #7e7a73;
-    --rule: #2b2926;
-    --accent: #e08356;
+    --paper: #161514;
+    --paper-2: #1e1d1b;
+    --ink: #f1f0ed;
+    --ink-2: #b4b2ae;
+    --ink-3: #82807b;
+    --rule: #2d2c29;
+    --card-border: rgba(241, 240, 237, 0.18);
+    --tile: #f4f3f1;
+    --accent: #cfc3fb;
+    --accent-soft: #262040;
+    --accent-ink: #191129;
   }
 }
 
@@ -33,14 +41,17 @@
   --color-ink-2: var(--ink-2);
   --color-ink-3: var(--ink-3);
   --color-rule: var(--rule);
+  --color-card: var(--card-border);
+  --color-tile: var(--tile);
   --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-display), ui-serif, Georgia, serif;
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-  /* keeps anchored sections clear of the sticky header */
   scroll-padding-top: 6rem;
 }
 
@@ -52,26 +63,135 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-::selection {
-  background: var(--accent);
-  color: var(--paper);
+/* Film-grain overlay, sits above everything, never intercepts clicks. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* ───────── Small caps section label ───────── */
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* ───────── Type helpers ───────── */
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.97;
+}
+
 .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
   font-size: 0.6875rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-3);
+  color: var(--ink-2);
+  font-weight: 600;
+}
+.eyebrow::before {
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: currentColor;
+  flex: none;
+}
+
+/* The circled ampersand in display headlines. */
+.amp {
+  display: inline-grid;
+  place-items: center;
+  width: 1em;
+  height: 1em;
+  margin: 0 0.06em;
+  border: 0.045em solid currentColor;
+  border-radius: 50%;
+  font-size: 0.82em;
+  vertical-align: -0.08em;
   font-weight: 500;
 }
 
+/* ───────── Pills & cards ───────── */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border-radius: 9999px;
+  padding: 0.7rem 1.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--accent-ink);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s;
+}
+.pill:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+.pill--ink {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.card {
+  border: 1px solid var(--card-border);
+  border-radius: 0.9rem;
+  background: transparent;
+}
+
+/* ───────── Counters ─────────
+   The number is rendered by a CSS counter. Without scroll-driven
+   animation support it simply shows the final value. */
+
+@property --n {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+
+@keyframes count {
+  from {
+    --n: 0;
+  }
+  to {
+    --n: var(--target);
+  }
+}
+
+.stat-num::after {
+  counter-reset: n var(--target);
+  content: counter(n);
+}
+
+@supports (animation-timeline: view()) {
+  .stat-num {
+    animation: count 1s linear both;
+    animation-timeline: view();
+    animation-range: entry 10% entry 60%;
+  }
+  .stat-num::after {
+    counter-reset: n var(--n);
+  }
+}
+
 /* ───────── Motion ─────────
-   Both effects are pure CSS and start from the VISIBLE state, so content can
-   never get stuck hidden — no JS, no observer, nothing to fail. `.rise` is a
-   one-shot load-in for above-the-fold copy; `.reveal` is scroll-driven and
-   only engages in browsers that support scroll-linked animations. Everywhere
-   else the element simply sits there, fully legible. */
+   Pure CSS, starting from the VISIBLE state — content can never get
+   stuck hidden. `.rise` is a one-shot load-in for above-the-fold copy;
+   `.reveal` is scroll-driven where supported. */
 
 @keyframes riseIn {
   from {
@@ -92,7 +212,7 @@ body {
   .reveal {
     animation: riseIn linear both;
     animation-timeline: view();
-    animation-range: entry 5% entry 60%;
+    animation-range: entry 5% entry 55%;
   }
 }
 
@@ -101,7 +221,8 @@ body {
     scroll-behavior: auto;
   }
   .rise,
-  .reveal {
+  .reveal,
+  .stat-num {
     animation: none;
   }
 }

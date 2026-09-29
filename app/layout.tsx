@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import { Inter, Inter_Tight } from "next/font/google";
 import { site } from "@/content";
 import "./globals.css";
 
@@ -9,9 +9,9 @@ const body = Inter({
   display: "swap",
 });
 
-const display = Instrument_Serif({
+const display = Inter_Tight({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["600", "700", "800"],
   variable: "--font-display",
   display: "swap",
 });

@@ -22,6 +22,44 @@ export const site = {
   url: "https://example.com",
 };
 
+export const hero = {
+  availability: "Available for product marketing & website projects",
+  // Rendered as one display headline; "&" gets the circled treatment.
+  headline: ["Product Marketing", "& Full-Funnel", "Growth Expert"],
+  // **bold** spans are highlighted in the rendered paragraph.
+  intro:
+    "I help B2B SaaS products grow through **product marketing**, **ABM and outbound**, and **LinkedIn ads** — and I design and build the **websites** the campaigns land on, from Figma to deployed code.",
+  stat: { value: "#5+", label: "SaaS products marketed" },
+};
+
+export type Stat = { target: number; suffix: string; label: string };
+
+export const stats: Stat[] = [
+  { target: 5, suffix: "+", label: "SaaS products marketed" },
+  { target: 4, suffix: "+", label: "Years across sales & marketing" },
+  { target: 14, suffix: "", label: "Client meetings booked in one month" },
+];
+
+export type Tool = {
+  name: string;
+  src?: string; // svg in /public/tools
+  mono?: { text: string; bg: string; fg: string }; // fallback monogram tile
+};
+
+export const toolsKit: Tool[] = [
+  { name: "Apollo", mono: { text: "A", bg: "#101014", fg: "#f2c94c" } },
+  { name: "Instantly", mono: { text: "In", bg: "#4f5dff", fg: "#ffffff" } },
+  { name: "HubSpot CRM", src: "/tools/hubspot.svg" },
+  { name: "Salesforce", src: "/tools/salesforce.svg" },
+  { name: "LinkedIn Ads", src: "/tools/linkedin.svg" },
+  { name: "GA4", src: "/tools/googleanalytics.svg" },
+  { name: "Figma", src: "/tools/figma.svg" },
+  { name: "Canva", src: "/tools/canva.svg" },
+  { name: "Power BI", src: "/tools/powerbi.svg" },
+  { name: "Zoho CRM", src: "/tools/zoho.svg" },
+  { name: "Next.js", src: "/tools/nextdotjs.svg" },
+];
+
 export const about = [
   "I'm a product marketer at Market Pro, working across a portfolio of SaaS products — RegTech, FinTech, KYC/AML, healthcare, and a standalone LLM-based AI tool. The common thread is stakeholder communication: keeping product, content, SEO and PPC pointed at the same thing.",
   "Most of my day sits where research, outreach and paid meet the website. On the KYC/AML and AI products that means cold email out of Apollo and Instantly alongside LinkedIn ads on the same accounts, so outreach and paid reach the same buyers together. Product research feeds the roadmap and the positioning, and what I learn there goes straight into the pages.",
