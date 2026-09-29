@@ -1,7 +1,8 @@
 /**
- * The "H" mark: full-height bars, a rising crossbar (growth), and a
- * floating lavender pixel. Draws in currentColor so it adapts to
- * light/dark; the accent square uses the site's --accent token.
+ * The "Shear H": a solid H with two diagonal bites cut from the
+ * crossbar corners — one from the top-left, one from the bottom-right —
+ * giving it a slash of motion. Pure single-color mark; draws in
+ * currentColor so it adapts to light/dark automatically.
  */
 export default function Logo({
   size = 28,
@@ -12,16 +13,16 @@ export default function Logo({
 }) {
   return (
     <svg
-      width={(size * 68) / 64}
+      width={size}
       height={size}
-      viewBox="0 0 68 64"
+      viewBox="0 0 64 64"
       aria-hidden
       className={className}
     >
-      <rect x="4" y="10" width="14" height="50" fill="currentColor" />
-      <rect x="38" y="10" width="14" height="50" fill="currentColor" />
-      <polygon points="18,40 38,30 38,44 18,54" fill="currentColor" />
-      <rect x="56" y="2" width="11" height="11" fill="var(--accent)" />
+      <path
+        fill="currentColor"
+        d="M8,6 L22,6 L22,31.5 L32,26 L42,26 L42,6 L56,6 L56,58 L42,58 L42,32.5 L32,38 L22,38 L22,58 L8,58 Z"
+      />
     </svg>
   );
 }
