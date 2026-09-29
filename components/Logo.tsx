@@ -1,8 +1,9 @@
 /**
- * The HM monogram (user's chosen mark, rebuilt as clean vector):
- * twin peaks with a deep dip, elbowed outer legs, a nested double
- * chevron, and four vertical stems — rounded caps throughout.
- * Draws in currentColor so it adapts to light/dark automatically.
+ * The HM monogram — faithful vector of the user's chosen mark:
+ * an outer M with rounded peaks and elbowed leg stubs, a top-center
+ * U (two stubs) feeding an inner V nested above the M's valley, and
+ * a lower pair of stems aligned under the top stubs. Rounded caps
+ * throughout; draws in currentColor to adapt to light/dark.
  */
 export default function Logo({
   size = 28,
@@ -26,11 +27,10 @@ export default function Logo({
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <polyline points="20,74 20,52 44,18 60,42 76,18 100,52 100,74" />
-        <polyline points="28,44 60,80 92,44" />
-        <polyline points="36,44 60,71 84,44" />
-        <line x1="40" y1="56" x2="40" y2="84" />
-        <line x1="80" y1="56" x2="80" y2="84" />
+        <polyline points="18,74 18,60 34.5,31.5 60,71.5 85.5,31.5 102,60 102,74" />
+        <polyline points="36,16 36,28 60,55.5 84,28 84,16" />
+        <line x1="36" y1="63" x2="36" y2="79" />
+        <line x1="84" y1="63" x2="84" y2="79" />
       </g>
     </svg>
   );
