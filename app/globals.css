@@ -113,7 +113,16 @@ body {
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 1.1rem;
+  border-radius: 1.25rem;
+  transition:
+    border-color 0.35s,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.35s;
+}
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: var(--surface-2);
+  transform: translateY(-3px);
 }
 
 /* Soft glow used behind the contact panel */
@@ -121,6 +130,41 @@ body {
   background:
     radial-gradient(60% 50% at 50% 0%, rgba(255, 255, 255, 0.07), transparent 70%),
     var(--surface);
+}
+
+/* ───────── Hero glow ───────── */
+.hero-glow {
+  background:
+    radial-gradient(50% 42% at 50% 0%, rgba(207, 195, 251, 0.10), transparent 70%),
+    radial-gradient(70% 55% at 50% 8%, rgba(255, 255, 255, 0.06), transparent 70%);
+}
+
+/* ───────── Tools marquee ─────────
+   Pure CSS loop; the track holds the list twice and slides half its
+   width. Faded edges via mask. Reduced motion = static row. */
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+}
+.marquee-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: marquee 36s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
 }
 
 /* ───────── Counters (unchanged mechanics) ───────── */
