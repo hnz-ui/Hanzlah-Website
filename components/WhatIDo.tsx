@@ -3,17 +3,17 @@ import Section from "./Section";
 
 export default function WhatIDo() {
   return (
-    <Section id="services" eyebrow="Services" heading="What I Do ?" center>
+    <Section id="services" chip="What I do" gray="I’ll Help Your" white="Pipeline Grow">
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {capabilities.map((c, i) => (
           <article key={c.group} className="reveal card p-7 text-left">
-            <p className="display text-sm text-ink-3">
+            <span className="grid size-11 place-items-center rounded-xl border border-line bg-surface-2 text-sm text-mut">
               {String(i + 1).padStart(2, "0")}
-            </p>
-            <h3 className="display mt-5 text-2xl text-ink">{c.group}</h3>
-            <ul className="mt-4 space-y-1.5">
+            </span>
+            <h3 className="display mt-6 text-xl text-ink">{c.group}</h3>
+            <ul className="mt-3 space-y-1.5">
               {c.items.map((item) => (
-                <li key={item} className="text-sm leading-relaxed text-ink-2">
+                <li key={item} className="text-sm leading-relaxed text-mut">
                   {item}
                 </li>
               ))}

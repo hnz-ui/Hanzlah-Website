@@ -1,51 +1,31 @@
 @import "tailwindcss";
 
-/* ───────── Design tokens ─────────
-   Big-grotesk portfolio language: warm gray paper with a film-grain
-   overlay, near-black ink, one lavender accent, hairline card borders. */
+/* ───────── Proxio-style theme ─────────
+   Pure black ground, dark surfaces with hairline borders, white ink
+   with gray two-tone headlines, chip labels, outlined pill buttons. */
 
 :root {
-  --paper: #f2f1ef;
-  --paper-2: #eae9e6;
-  --ink: #151514;
-  --ink-2: #4c4b49;
-  --ink-3: #8a8884;
-  --rule: #d9d7d3;
-  --card-border: rgba(21, 21, 20, 0.18);
-  --tile: #ffffff;
+  --bg: #050505;
+  --surface: #0f0f0e;
+  --surface-2: #171716;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.22);
+  --ink: #f4f4f2;
+  --mut: #9b9b97;
+  --dim: #6f6f6b;
   --accent: #cfc3fb;
-  --accent-soft: #eae5fd;
-  --accent-ink: #191129;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #161514;
-    --paper-2: #1e1d1b;
-    --ink: #f1f0ed;
-    --ink-2: #b4b2ae;
-    --ink-3: #82807b;
-    --rule: #2d2c29;
-    --card-border: rgba(241, 240, 237, 0.18);
-    --tile: #f4f3f1;
-    --accent: #cfc3fb;
-    --accent-soft: #262040;
-    --accent-ink: #191129;
-  }
 }
 
 @theme inline {
-  --color-paper: var(--paper);
-  --color-paper-2: var(--paper-2);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
   --color-ink: var(--ink);
-  --color-ink-2: var(--ink-2);
-  --color-ink-3: var(--ink-3);
-  --color-rule: var(--rule);
-  --color-card: var(--card-border);
-  --color-tile: var(--tile);
+  --color-mut: var(--mut);
+  --color-dim: var(--dim);
   --color-accent: var(--accent);
-  --color-accent-soft: var(--accent-soft);
-  --color-accent-ink: var(--accent-ink);
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 }
@@ -53,109 +33,97 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
+  color-scheme: dark;
 }
 
 body {
-  background: var(--paper);
+  background: var(--bg);
   color: var(--ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-/* Film-grain overlay, sits above everything, never intercepts clicks. */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 90;
-  pointer-events: none;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
 ::selection {
   background: var(--accent);
-  color: var(--accent-ink);
+  color: #191129;
 }
 
-/* ───────── Type helpers ───────── */
+/* ───────── Type ───────── */
 
 .display {
   font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 0.97;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
 }
 
-.eyebrow {
+/* Two-tone headline halves */
+.tw {
+  color: var(--ink);
+}
+.tg {
+  color: var(--dim);
+}
+
+/* ───────── Chip (section label pill) ───────── */
+.chip {
   display: inline-flex;
   align-items: center;
-  gap: 0.55em;
-  font-size: 0.6875rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-  font-weight: 600;
-}
-.eyebrow::before {
-  content: "";
-  width: 0.5em;
-  height: 0.5em;
-  border-radius: 50%;
-  background: currentColor;
-  flex: none;
+  gap: 0.5em;
+  border-radius: 9999px;
+  background: #1b1b1a;
+  border: 1px solid var(--border);
+  color: #cfcfca;
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
 }
 
-/* The circled ampersand in display headlines. */
-.amp {
-  display: inline-grid;
-  place-items: center;
-  width: 1em;
-  height: 1em;
-  margin: 0 0.06em;
-  border: 0.045em solid currentColor;
-  border-radius: 50%;
-  font-size: 0.82em;
-  vertical-align: -0.08em;
-  font-weight: 500;
-}
-
-/* ───────── Pills & cards ───────── */
-
-.pill {
+/* ───────── Outlined pill button ───────── */
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5em;
+  gap: 0.55em;
   border-radius: 9999px;
-  padding: 0.7rem 1.4rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  background: var(--accent);
-  color: var(--accent-ink);
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s;
-}
-.pill:hover {
-  transform: translateY(-2px);
-  opacity: 0.92;
-}
-.pill--ink {
-  background: var(--ink);
-  color: var(--paper);
-}
-
-.card {
-  border: 1px solid var(--card-border);
-  border-radius: 0.9rem;
+  border: 1px solid var(--border-strong);
+  color: var(--ink);
   background: transparent;
+  padding: 0.85rem 1.6rem;
+  font-size: 0.95rem;
+  transition:
+    background 0.25s,
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s;
+}
+.btn:hover {
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-2px);
+}
+.btn--solid {
+  background: var(--ink);
+  color: #0a0a0a;
+  border-color: var(--ink);
+}
+.btn--solid:hover {
+  background: #dcdcd8;
 }
 
-/* ───────── Counters ─────────
-   The number is rendered by a CSS counter. Without scroll-driven
-   animation support it simply shows the final value. */
+/* ───────── Card ───────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.1rem;
+}
+
+/* Soft glow used behind the contact panel */
+.glow {
+  background:
+    radial-gradient(60% 50% at 50% 0%, rgba(255, 255, 255, 0.07), transparent 70%),
+    var(--surface);
+}
+
+/* ───────── Counters (unchanged mechanics) ───────── */
 
 @property --n {
   syntax: "<integer>";
@@ -188,10 +156,7 @@ body::after {
   }
 }
 
-/* ───────── Motion ─────────
-   Pure CSS, starting from the VISIBLE state — content can never get
-   stuck hidden. `.rise` is a one-shot load-in for above-the-fold copy;
-   `.reveal` is scroll-driven where supported. */
+/* ───────── Motion (visible base state, as before) ───────── */
 
 @keyframes riseIn {
   from {
@@ -227,7 +192,7 @@ body::after {
   }
 }
 
-/* ───────── Underline that draws on hover ───────── */
+/* ───────── Hover underline ───────── */
 .link-underline {
   background-image: linear-gradient(currentColor, currentColor);
   background-position: 0 100%;

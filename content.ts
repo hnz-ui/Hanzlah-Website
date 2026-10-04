@@ -23,13 +23,13 @@ export const site = {
 };
 
 export const hero = {
-  availability: "Available for product marketing & website projects",
-  // Rendered as one display headline; "&" gets the circled treatment.
-  headline: ["Product Marketing", "& Full-Funnel", "Growth Expert"],
-  // **bold** spans are highlighted in the rendered paragraph.
+  pill: "Hello, I’m Hanzlah \u{1F44B}",
+  // Two-tone headline: white part, then gray part.
+  headlineWhite: "Product marketer crafting",
+  headlineGray: "growth that compounds",
+  // **bold** spans render white; the rest renders gray.
   intro:
     "I help B2B SaaS products grow through **product marketing**, **ABM and outbound**, and **LinkedIn ads** — and I design and build the **websites** the campaigns land on, from Figma to deployed code.",
-  stat: { value: "#5+", label: "SaaS products marketed" },
 };
 
 export type Stat = { target: number; suffix: string; label: string };

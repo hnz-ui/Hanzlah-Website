@@ -1,41 +1,47 @@
-import { experience, resumeHref } from "@/content";
+import { experience, education, resumeHref } from "@/content";
 import Section from "./Section";
 
 export default function Experience() {
   return (
-    <Section id="experience" eyebrow="Career" heading="Experience">
-      <ol className="max-w-4xl">
+    <Section id="experience" chip="Career" gray="Where I’ve" white="Worked">
+      <ol className="mx-auto max-w-5xl">
         {experience.map((role) => (
           <li
             key={role.company + role.period}
-            className="reveal border-t border-rule py-8 first:border-t-0 first:pt-0"
+            className="reveal grid gap-3 border-t border-line py-8 text-left first:border-t-0 first:pt-0 md:grid-cols-[1.1fr_1.4fr] md:gap-10"
           >
-            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-              <h3 className="display text-xl text-ink">
-                {role.title}
-                <span className="font-sans text-base font-normal text-ink-3">
-                  {" "}
-                  · {role.company}
-                </span>
-              </h3>
-              <span className="pill !bg-paper-2 !py-1.5 !px-3.5 !text-[0.6rem] !text-ink-2">
-                {role.period}
-              </span>
+            <div>
+              <h3 className="display text-lg text-ink">{role.title}</h3>
+              <p className="mt-1 text-sm text-mut">{role.company}</p>
+              <p className="mt-1 text-sm text-dim">{role.period}</p>
             </div>
-            <p className="mt-3 max-w-2xl leading-relaxed text-ink-2">
-              {role.detail}
+            <p className="leading-relaxed text-mut">{role.detail}</p>
+          </li>
+        ))}
+        {education.map((e) => (
+          <li
+            key={e.school}
+            className="reveal grid gap-3 border-t border-line py-8 text-left md:grid-cols-[1.1fr_1.4fr] md:gap-10"
+          >
+            <div>
+              <h3 className="display text-lg text-ink">{e.degree}</h3>
+              <p className="mt-1 text-sm text-mut">{e.school}</p>
+              <p className="mt-1 text-sm text-dim">{e.period}</p>
+            </div>
+            <p className="leading-relaxed text-mut">
+              Where the management side met the technology side — the degree
+              behind the marketing.
             </p>
           </li>
         ))}
       </ol>
 
       {resumeHref && (
-        <a
-          href={resumeHref}
-          className="reveal link-underline mt-6 inline-block text-sm font-semibold text-ink-2 hover:text-ink"
-        >
-          Download the full résumé ↗
-        </a>
+        <div className="reveal mt-10 text-center">
+          <a href={resumeHref} className="btn">
+            Download résumé <span aria-hidden>↗</span>
+          </a>
+        </div>
       )}
     </Section>
   );

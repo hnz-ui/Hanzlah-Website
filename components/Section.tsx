@@ -1,32 +1,35 @@
 /**
- * One page section: dot-eyebrow, big display heading, then content.
- * `center` mirrors the reference's centered "What I Do ?" treatment.
+ * Proxio-style section: a chip label, a centered two-tone headline
+ * (white part + gray part), then the content.
  */
 export default function Section({
   id,
-  eyebrow,
-  heading,
-  center = false,
+  chip,
+  white,
+  gray,
+  center = true,
   children,
 }: {
   id: string;
-  eyebrow: string;
-  heading?: string;
+  chip: string;
+  white?: string;
+  gray?: string;
   center?: boolean;
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="border-t border-rule">
+    <section id={id} className="scroll-mt-24">
       <div className="mx-auto max-w-6xl px-6 py-20 sm:px-8 sm:py-28">
         <div className={`reveal ${center ? "text-center" : ""}`}>
-          <p className="eyebrow">{eyebrow}</p>
-          {heading && (
-            <h2 className="display mt-5 text-[clamp(2.4rem,5.5vw,4.25rem)] text-ink">
-              {heading}
+          <span className="chip">{chip}</span>
+          {(white || gray) && (
+            <h2 className="display mt-6 text-[clamp(2.2rem,5vw,3.6rem)]">
+              {gray && <span className="tg">{gray} </span>}
+              {white && <span className="tw">{white}</span>}
             </h2>
           )}
         </div>
-        <div className={heading ? "mt-12 sm:mt-16" : "mt-10"}>{children}</div>
+        <div className="mt-12 sm:mt-16">{children}</div>
       </div>
     </section>
   );
