@@ -30,6 +30,21 @@ Then open http://localhost:3000.
 
 To check the real production output: `npm run build && npm start`.
 
+## Local hosting (set up 2026-10-05)
+
+The site runs as a macOS login service (`launchd`), so it is **always
+available at http://localhost:3000** on this laptop — it starts at login
+and restarts itself if it crashes. No terminal needed.
+
+- Service file: `~/Library/LaunchAgents/com.hanzlah.portfolio.plist`
+- Logs: `.portfolio-server.log` in this folder
+- Stop it:  `launchctl unload ~/Library/LaunchAgents/com.hanzlah.portfolio.plist`
+- Start it: `launchctl load ~/Library/LaunchAgents/com.hanzlah.portfolio.plist`
+
+It serves the **production build** (`.next`). After editing content, run
+`npm run build`, then `launchctl kickstart -k gui/$(id -u)/com.hanzlah.portfolio`
+to pick up the changes (or ask Claude — it does this automatically).
+
 ## Deploying
 
 1. Create an empty repo on GitHub (no README, no .gitignore — this folder has both).
