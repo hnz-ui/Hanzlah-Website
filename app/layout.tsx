@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Inter_Tight } from "next/font/google";
 import { site } from "@/content";
 import "./globals.css";
@@ -39,7 +40,23 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${body.variable} ${display.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        {/* Google Analytics 4 — lives in the root layout so EVERY page,
+            including any added later, is tracked automatically. */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${site.gaId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${site.gaId}');
+          `}
+        </Script>
+      </body>
     </html>
   );
 }

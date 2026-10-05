@@ -14,6 +14,8 @@ export const site = {
     "Product marketing for B2B SaaS — outbound and ABM, LinkedIn ads, and the websites campaigns land on. Currently at Market Pro.",
   // Set this once you connect your domain, e.g. "https://hanzlahmalik.com"
   url: "https://example.com",
+  // GA4 measurement ID — injected on every page via app/layout.tsx.
+  gaId: "G-HNS02HZJKQ",
 };
 
 export const hero = {
