@@ -1,34 +1,49 @@
-import { hero, resumeHref } from "@/content";
+import { hero } from "@/content";
+import ShaderBg from "./ShaderBg";
+import LocalTime from "./LocalTime";
 
 export default function Hero() {
   return (
-    <section id="top" className="hero-glow">
-      <div className="mx-auto flex max-w-6xl flex-col items-center px-6 pb-28 pt-28 text-center sm:px-8 sm:pb-36 sm:pt-44">
-        <span className="chip rise">{hero.pill}</span>
+    <section id="top" className="relative overflow-hidden">
+      <ShaderBg />
+      {/* melt the shader into the page background at the bottom */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-bg"
+      />
 
-        <h1
-          className="display rise mt-9 max-w-4xl text-[clamp(2.9rem,7.2vw,5.8rem)]"
-          style={{ animationDelay: "90ms" }}
-        >
-          <span className="tw">{hero.headlineWhite}</span>{" "}
-          <span className="tg">{hero.headlineGray}</span>
-        </h1>
+      <div className="relative mx-auto flex min-h-[calc(100svh-62px)] max-w-7xl flex-col border-x border-line px-6 pb-10 pt-6 sm:px-10">
+        {/* meta row */}
+        <div className="rise flex items-baseline justify-between border-b border-line pb-5 text-sm text-mut">
+          <span>{hero.status}</span>
+          <span className="hidden uppercase tracking-widest sm:block">
+            {hero.location}
+          </span>
+          <LocalTime />
+        </div>
 
-        <div
-          className="rise mt-11 flex flex-wrap items-center justify-center gap-6"
-          style={{ animationDelay: "200ms" }}
-        >
-          <a href="#contact" className="btn">
-            Let’s Talk <span aria-hidden>↗</span>
+        {/* headline block */}
+        <div className="flex flex-1 flex-col justify-center py-16">
+          <h1
+            className="display rise max-w-4xl text-[clamp(2.4rem,5.5vw,4.6rem)] text-ink"
+            style={{ animationDelay: "120ms" }}
+          >
+            {hero.headline}
+          </h1>
+          <a
+            href="#contact"
+            className="display rise mt-12 inline-block w-fit border-b border-line-strong pb-2 text-2xl text-ink transition-colors hover:border-ink sm:text-3xl"
+            style={{ animationDelay: "240ms" }}
+          >
+            {hero.cta}
           </a>
-          {resumeHref && (
-            <a
-              href={resumeHref}
-              className="link-underline text-sm text-mut hover:text-ink"
-            >
-              View résumé ↗
-            </a>
-          )}
+        </div>
+
+        {/* bottom-right paragraph */}
+        <div className="rise flex justify-end" style={{ animationDelay: "320ms" }}>
+          <p className="max-w-sm text-right text-sm leading-relaxed text-mut">
+            {hero.sub}
+          </p>
         </div>
       </div>
     </section>

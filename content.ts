@@ -19,9 +19,12 @@ export const site = {
 };
 
 export const hero = {
-  pill: "Hello, I’m Hanzlah \u{1F44B}",
-  headlineWhite: "Product marketer crafting",
-  headlineGray: "growth that compounds",
+  status: "Open for work",
+  location: "Pakistan",
+  headline:
+    "Hey, I build marketing engines that connect products and buyers worldwide.",
+  cta: "Let\u2019s Talk",
+  sub: "I work the whole funnel \u2014 research, outbound, ads and the pages they land on \u2014 built to look sharp and measured in GA4.",
 };
 
 // Big centered statement. **bold** spans render white, the rest gray.
