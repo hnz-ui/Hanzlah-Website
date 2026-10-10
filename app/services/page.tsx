@@ -5,9 +5,9 @@ import ServicesGrid from "@/components/ServicesGrid";
 import Contact from "@/components/Contact";
 
 export const metadata: Metadata = {
-  title: "Services — Product Marketing, Outbound, Web Development & Design | Hanzlah Malik",
+  title: "Services: Product Marketing, Research, LinkedIn Ads, Outbound & Web | Hanzlah Malik",
   description:
-    "Marketing and web services for B2B SaaS: product marketing and GTM, cold email and ABM outbound, React/Next.js website development, UI/UX design in Figma, and community-led growth.",
+    "What I do for B2B and B2C products: product marketing and GTM, market research, LinkedIn ads, cold email and ABM outbound, content and social, React websites, product design support, and community-led growth.",
 };
 
 export default function ServicesIndex() {

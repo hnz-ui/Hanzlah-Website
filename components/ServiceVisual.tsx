@@ -65,10 +65,10 @@ export default function ServiceVisual({
   if (kind === "pm")
     return (
       <div className="card w-full p-6 shadow-[6px_6px_0_var(--acc)]">
-        <p className="text-xs font-semibold uppercase tracking-wider text-dim">Launch plan — Q4</p>
+        <p className="text-xs font-semibold uppercase tracking-wider text-dim">Launch plan: Q4</p>
         <ul className="mt-4 space-y-3">
           {[
-            { t: "Research & positioning", done: true },
+            { t: "Research and positioning", done: true },
             { t: "Messaging locked with sales", done: true },
             { t: "SEO + PPC teams briefed", done: true },
             { t: "Landing page live", done: true },
@@ -93,7 +93,7 @@ export default function ServiceVisual({
     return (
       <div className="card w-full p-6 shadow-[6px_6px_0_var(--acc)]">
         <div className="flex items-baseline justify-between">
-          <p className="text-xs font-semibold uppercase tracking-wider text-dim">Campaign — ABM / Decision makers</p>
+          <p className="text-xs font-semibold uppercase tracking-wider text-dim">Campaign: ABM / Decision makers</p>
           <span className="text-xs font-bold" style={{ color: accent }}>Active</span>
         </div>
         <div className="mt-5 flex h-28 items-end gap-2">
@@ -112,7 +112,7 @@ export default function ServiceVisual({
   if (kind === "content")
     return (
       <div className="card w-full p-6 shadow-[6px_6px_0_var(--acc)]">
-        <p className="text-xs font-semibold uppercase tracking-wider text-dim">Content calendar — week 42</p>
+        <p className="text-xs font-semibold uppercase tracking-wider text-dim">Content calendar: week 42</p>
         <div className="mt-4 grid grid-cols-5 gap-2 text-center text-[0.6rem] font-semibold text-dim">
           {["Mon", "Tue", "Wed", "Thu", "Fri"].map((d) => <span key={d}>{d}</span>)}
           {[
@@ -124,14 +124,14 @@ export default function ServiceVisual({
             </span>
           ))}
         </div>
-        <p className="mt-4 border-t border-line pt-3 text-xs text-mut">Every slot backed by topic research — nothing posted “just to post”.</p>
+        <p className="mt-4 border-t border-line pt-3 text-xs text-mut">Every slot backed by topic research. Nothing posted “just to post”.</p>
       </div>
     );
 
   if (kind === "research")
     return (
       <div className="card w-full p-6 shadow-[6px_6px_0_var(--acc)]">
-        <p className="text-xs font-semibold uppercase tracking-wider text-dim">Competitor teardown — pricing page</p>
+        <p className="text-xs font-semibold uppercase tracking-wider text-dim">Competitor teardown: pricing page</p>
         <ul className="mt-4 space-y-2.5">
           {[
             ["Gap", "No one owns “compliance speed” messaging"],
@@ -148,28 +148,29 @@ export default function ServiceVisual({
       </div>
     );
 
-  // community — real platform logos orbiting
-  const sats = [
-    { r: "7rem", d: "18s", delay: "0s", src: "/tools/reddit.svg" },
-    { r: "7rem", d: "18s", delay: "-9s", src: "/tools/discord.svg" },
-    { r: "4.5rem", d: "11s", delay: "0s", src: "/tools/producthunt.svg" },
-    { r: "4.5rem", d: "11s", delay: "-3.7s", src: "/tools/substack.svg" },
-    { r: "4.5rem", d: "11s", delay: "-7.4s", src: "/tools/linkedin.svg" },
+  // community: clean platform + partnership tiles, no animation
+  const platforms = [
+    { n: "Reddit", src: "/tools/reddit.svg" },
+    { n: "Discord", src: "/tools/discord.svg" },
+    { n: "Product Hunt", src: "/tools/producthunt.svg" },
+    { n: "Substack", src: "/tools/substack.svg" },
+    { n: "LinkedIn", src: "/tools/linkedin.svg" },
   ];
   return (
-    <div className="card relative mx-auto grid aspect-square w-full max-w-[300px] place-items-center overflow-hidden rounded-full p-6">
-      <span className="absolute inset-8 rounded-full border border-dashed border-line" />
-      <span className="absolute inset-20 rounded-full border border-dashed border-line" />
-      <span className="display grid size-16 place-items-center rounded-full text-xl text-white" style={{ background: accent }}>H</span>
-      {sats.map((sat, i) => (
-        <span
-          key={i}
-          className="orbit absolute grid size-10 place-items-center rounded-full border border-line bg-surface shadow-sm"
-          style={{ "--r": sat.r, "--d": sat.d, animationDelay: sat.delay } as React.CSSProperties}
-        >
-          <img src={sat.src} alt="" className="size-5" />
-        </span>
-      ))}
+    <div className="card w-full p-6 shadow-[6px_6px_0_var(--acc)]">
+      <p className="text-xs font-semibold uppercase tracking-wider text-dim">Where the work happens</p>
+      <ul className="mt-4 grid grid-cols-2 gap-3">
+        {platforms.map((pl) => (
+          <li key={pl.n} className="flex items-center gap-3 rounded-lg border border-line bg-surface px-3.5 py-3">
+            <img src={pl.src} alt="" className="size-5" />
+            <span className="text-sm font-medium text-ink">{pl.n}</span>
+          </li>
+        ))}
+        <li className="flex items-center gap-3 rounded-lg px-3.5 py-3 text-white" style={{ background: accent }}>
+          <span className="text-base leading-none">+</span>
+          <span className="text-sm font-semibold">Partnerships &amp; listings</span>
+        </li>
+      </ul>
     </div>
   );
 }

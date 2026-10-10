@@ -47,7 +47,7 @@ export default function Hero() {
             style={{ animationDelay: "260ms" }}
           >
             <Link href="/services" className="btn">
-              Explore services <span aria-hidden>→</span>
+              See what I do <span aria-hidden>→</span>
             </Link>
             <a href="#contact" className="btn btn--ghost">
               Let’s talk
@@ -55,14 +55,19 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="rise relative mx-auto w-full max-w-sm" style={{ animationDelay: "320ms" }}>
-          <div aria-hidden className="absolute -inset-3 rotate-3 rounded-3xl border-2 border-line-strong" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/me.jpg"
-            alt="Hanzlah Malik — product marketer and website builder"
-            className="relative w-full -rotate-2 rounded-3xl border border-line object-cover shadow-[10px_10px_0_var(--acc)] transition-transform duration-500 hover:rotate-0"
-          />
+        <div className="rise relative mx-auto mt-6 w-full max-w-sm lg:mt-0" style={{ animationDelay: "320ms" }}>
+          <div className="relative overflow-hidden rounded-t-[10rem] rounded-b-3xl border border-line bg-acc-soft pt-10">
+            <div aria-hidden className="grid-bg absolute inset-0 opacity-60" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/me.png"
+              alt="Hanzlah Malik, product marketer and website builder"
+              className="relative mx-auto block w-[86%] drop-shadow-xl"
+            />
+          </div>
+          <span className="chip absolute -left-3 top-16 rotate-[-4deg] bg-surface !text-xs shadow-sm">B2B &amp; B2C SaaS</span>
+          <span className="chip absolute -right-3 bottom-24 rotate-[3deg] bg-surface !text-xs shadow-sm">Personal brands</span>
+          <span className="chip absolute -right-2 top-36 rotate-[2deg] bg-surface !text-xs shadow-sm">React websites</span>
         </div>
       </div>
     </section>

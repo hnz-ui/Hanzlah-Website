@@ -4,7 +4,7 @@ import Section from "./Section";
 
 export default function ServicesGrid() {
   return (
-    <Section id="services" chip="Services" gray="What I Can" white="Do for You">
+    <Section id="services" chip="What I do" gray="This Is What" white="I Actually Do">
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s, i) => (
           <Link
@@ -22,14 +22,14 @@ export default function ServicesGrid() {
             <h3 className="display mt-5 text-xl text-ink">{s.name}</h3>
             <p className="mt-2 text-sm leading-relaxed text-mut">{s.short}</p>
             <span className="mt-5 inline-block text-sm font-semibold" style={{ color: s.accent }}>
-              Explore <span aria-hidden className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              See how <span aria-hidden className="inline-block transition-transform group-hover:translate-x-1">→</span>
             </span>
           </Link>
         ))}
         <div className="reveal card flex flex-col justify-center bg-surface-2 p-7 text-left">
           <h3 className="display text-xl text-ink">Something else?</h3>
           <p className="mt-2 text-sm leading-relaxed text-mut">
-            If it grows pipeline or ships a page, I probably do it.
+            If it grows a product or ships a page, I have probably done it.
           </p>
           <a href="#contact" className="link-underline mt-5 w-fit text-sm font-semibold text-ink">
             Ask me →

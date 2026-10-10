@@ -5,6 +5,25 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import ServiceVisual from "./ServiceVisual";
 
+
+/** ==text== spans render in the service accent. */
+function AccentText({ text, accent }: { text: string; accent: string }) {
+  const parts = text.split("==");
+  return (
+    <>
+      {parts.map((part, i) =>
+        i % 2 === 1 ? (
+          <span key={i} style={{ color: accent }}>
+            {part}
+          </span>
+        ) : (
+          <span key={i}>{part}</span>
+        ),
+      )}
+    </>
+  );
+}
+
 export default function ServicePage({ service }: { service: Service }) {
   const skills = skillGroups.find((g) => g.group === service.skillsGroup);
   const others = services.filter((s) => s.slug !== service.slug).slice(0, 3);
@@ -33,12 +52,12 @@ export default function ServicePage({ service }: { service: Service }) {
                 <span className="text-mut">{service.name}</span>
               </nav>
               <h1 className="display rise mt-6 text-[clamp(2.3rem,5vw,3.8rem)] text-ink" style={{ animationDelay: "90ms" }}>
-                {service.h1}
+                <AccentText text={service.h1} accent={service.accent} />
               </h1>
               <p className="rise mt-5 max-w-xl text-lg leading-relaxed text-mut" style={{ animationDelay: "170ms" }}>
                 {service.sub}
               </p>
-              <a href={`mailto:${site.email}?subject=${encodeURIComponent(service.name + " — project inquiry")}`} className="btn rise mt-8" style={{ animationDelay: "250ms" }}>
+              <a href={`mailto:${site.email}?subject=${encodeURIComponent(service.name + " project inquiry")}`} className="btn rise mt-8" style={{ animationDelay: "250ms" }}>
                 Start a project <span aria-hidden>→</span>
               </a>
             </div>
@@ -123,11 +142,28 @@ export default function ServicePage({ service }: { service: Service }) {
           </ul>
         </section>
 
+
+        {/* FAQ */}
+        <section className="mx-auto max-w-3xl px-6 pb-16 sm:px-8">
+          <h2 className="display reveal text-3xl text-ink">Questions I get</h2>
+          <div className="mt-6 space-y-3">
+            {service.faqs.map((f) => (
+              <details key={f.q} className="reveal card group p-5 open:bg-surface-2">
+                <summary className="display cursor-pointer list-none text-base text-ink">
+                  <span className="mr-2 inline-block transition-transform group-open:rotate-45" style={{ color: service.accent }}>+</span>
+                  {f.q}
+                </summary>
+                <p className="mt-3 pl-6 text-sm leading-relaxed text-mut">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
         {/* CTA + related */}
         <section className="mx-auto max-w-6xl px-6 pb-20 sm:px-8">
           <div className="reveal card p-10 text-center" style={{ background: service.accentSoft }}>
             <h2 className="display text-3xl text-ink sm:text-4xl">Let’s get this moving.</h2>
-            <p className="mx-auto mt-3 max-w-md text-mut">Tell me about the product, the audience and the deadline — I’ll reply with a plan.</p>
+            <p className="mx-auto mt-3 max-w-md text-mut">Tell me about the product, the audience and the deadline. I’ll reply with a plan.</p>
             <a href={`mailto:${site.email}`} className="btn mt-7">Email me <span aria-hidden>→</span></a>
           </div>
           <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-mut">

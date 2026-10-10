@@ -8,7 +8,7 @@ export default function Footer() {
         <div>
           <span className="display text-lg text-ink">{site.name}</span>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-mut">
-            {site.role} — {site.location}. Product marketing, outbound and
+            {site.role}, {site.location}. Product marketing, outbound and
             React websites for B2B SaaS.
           </p>
           <p className="mt-3 text-sm text-dim">{site.email}</p>
