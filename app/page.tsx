@@ -3,7 +3,8 @@ import Hero from "@/components/Hero";
 import ServicesGrid from "@/components/ServicesGrid";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
-import ToolsKit from "@/components/ToolsKit";
+import ToolsWheel from "@/components/ToolsWheel";
+import Section from "@/components/Section";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -16,7 +17,9 @@ export default function Home() {
         <About />
         <ServicesGrid />
         <Experience />
-        <ToolsKit />
+        <Section id="tools" chip="Toolbox" gray="Every Tool" white="I Run">
+          <ToolsWheel />
+        </Section>
         <Contact />
       </main>
       <Footer />

@@ -455,6 +455,79 @@ export const toolsKit: Tool[] = [
   { name: "Product Hunt", src: "/tools/producthunt.svg" },
 ];
 
+export type WheelCat = {
+  category: string;
+  tools: { name: string; icon?: string }[];
+};
+
+const m = (slug: string) => `/tools/m/${slug}.svg`;
+
+export const toolWheel: WheelCat[] = [
+  { category: "Automation & Workflows", tools: [
+    { name: "HubSpot", icon: m("hubspot") }, { name: "Zapier", icon: m("zapier") },
+    { name: "Make", icon: m("make") }, { name: "n8n", icon: m("n8n") },
+  ]},
+  { category: "SEO", tools: [
+    { name: "Semrush", icon: m("semrush") }, { name: "Ahrefs" },
+    { name: "Search Console", icon: m("googlesearchconsole") },
+    { name: "Keyword Planner", icon: m("googleads") }, { name: "Google Trends" }, { name: "Rank Math" },
+  ]},
+  { category: "Paid Advertising", tools: [
+    { name: "Google Ads", icon: m("googleads") }, { name: "Meta Ads", icon: m("meta") },
+    { name: "LinkedIn Ads", icon: m("linkedin") }, { name: "TikTok Ads", icon: m("tiktok") },
+    { name: "Reddit Ads", icon: m("reddit") }, { name: "X Ads", icon: m("x") },
+    { name: "Snapchat Ads", icon: m("snapchat") }, { name: "Pinterest Ads", icon: m("pinterest") },
+    { name: "Amazon Ads" },
+  ]},
+  { category: "Email & Outreach", tools: [
+    { name: "Apollo.io" }, { name: "Instantly" }, { name: "Snov.io" }, { name: "Hunter.io" },
+  ]},
+  { category: "CRM & Pipeline", tools: [
+    { name: "Salesforce", icon: m("salesforce") }, { name: "HubSpot CRM", icon: m("hubspot") },
+    { name: "Pipedrive" }, { name: "Zoho CRM", icon: m("zoho") }, { name: "Close" }, { name: "Attio" },
+  ]},
+  { category: "Prospecting & Intent", tools: [
+    { name: "Sales Navigator", icon: m("linkedin") }, { name: "Clay" }, { name: "6sense" },
+    { name: "Demandbase" }, { name: "Dealfront" }, { name: "Crunchbase", icon: m("crunchbase") },
+  ]},
+  { category: "Analytics & Reporting", tools: [
+    { name: "Google Analytics 4", icon: m("googleanalytics") },
+    { name: "Tag Manager", icon: m("googletagmanager") },
+    { name: "Power BI" }, { name: "Similarweb", icon: m("similarweb") },
+  ]},
+  { category: "AI & Content", tools: [
+    { name: "ChatGPT", icon: m("openai") }, { name: "Claude", icon: m("claude") },
+    { name: "Gemini", icon: m("googlegemini") }, { name: "Perplexity", icon: m("perplexity") },
+    { name: "Grammarly", icon: m("grammarly") }, { name: "Jasper" }, { name: "Copy.ai" },
+  ]},
+  { category: "Design & Video", tools: [
+    { name: "Figma", icon: m("figma") }, { name: "Canva", icon: m("canva") },
+    { name: "Freepik", icon: m("freepik") }, { name: "Midjourney" },
+    { name: "CapCut" }, { name: "HeyGen" }, { name: "Runway" },
+  ]},
+  { category: "Collaboration & PM", tools: [
+    { name: "Notion", icon: m("notion") }, { name: "Asana", icon: m("asana") },
+    { name: "Trello", icon: m("trello") }, { name: "ClickUp", icon: m("clickup") },
+    { name: "Jira", icon: m("jira") }, { name: "Airtable", icon: m("airtable") },
+    { name: "Slack", icon: m("slack") }, { name: "Miro", icon: m("miro") },
+    { name: "Loom", icon: m("loom") }, { name: "Google Workspace", icon: m("google") },
+  ]},
+  { category: "Websites & CMS", tools: [
+    { name: "WordPress", icon: m("wordpress") }, { name: "Webflow", icon: m("webflow") },
+    { name: "Next.js" },
+  ]},
+  { category: "Reviews & Launch", tools: [
+    { name: "Trustpilot", icon: m("trustpilot") }, { name: "G2", icon: m("g2") },
+    { name: "Capterra" }, { name: "Product Hunt", icon: m("producthunt") },
+  ]},
+  { category: "Ad Intelligence", tools: [
+    { name: "Meta Ad Library", icon: m("meta") },
+    { name: "Ads Transparency Center", icon: m("googleads") },
+    { name: "TikTok Creative Center", icon: m("tiktok") },
+    { name: "LinkedIn Ad Library", icon: m("linkedin") },
+  ]},
+];
+
 export type SideProject = { title: string; note?: string; line: string };
 
 export const sideProjects: SideProject[] = [
