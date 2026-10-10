@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Statement from "@/components/Statement";
 import ServicesGrid from "@/components/ServicesGrid";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
@@ -14,9 +13,8 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <Statement />
-        <ServicesGrid />
         <About />
+        <ServicesGrid />
         <Experience />
         <ToolsKit />
         <Contact />

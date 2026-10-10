@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { experience, education, resumeHref } from "@/content";
 import Section from "./Section";
 
@@ -33,7 +35,7 @@ export default function Experience() {
         </li>
       </ol>
 
-      {resumeHref && (
+      {resumeHref && fs.existsSync(path.join(process.cwd(), "public", "resume.pdf")) && (
         <div className="reveal mt-12 text-center">
           <a href={resumeHref} className="btn">
             Download résumé <span aria-hidden>↗</span>

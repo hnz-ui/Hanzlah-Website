@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { site } from "@/content";
-import Logo from "./Logo";
 
 const links = [
   { label: "Services", href: "/services" },
@@ -10,13 +9,21 @@ const links = [
 
 export default function Nav() {
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-bg/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-line bg-bg/85 backdrop-blur-md">
+      {/* top strip: direct contact */}
+      <div className="border-b border-line bg-surface">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-1.5 text-xs text-mut sm:px-8">
+          <a href={`mailto:${site.email}`} className="link-underline hover:text-ink">
+            {site.email}
+          </a>
+          <a href={`tel:${site.phone.replace(/ /g, "")}`} className="link-underline hover:text-ink">
+            {site.phone}
+          </a>
+        </div>
+      </div>
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3.5 sm:px-8">
-        <Link href="/" className="flex min-w-0 items-center gap-2.5">
-          <Logo size={30} />
-          <span className="display truncate text-lg text-ink">
-            {site.name.split(" ")[0]}
-          </span>
+        <Link href="/" className="display truncate text-xl text-ink">
+          Hanzlah
         </Link>
         <div className="flex shrink-0 items-center gap-4 sm:gap-7">
           <ul className="flex items-center gap-4 text-sm text-mut sm:gap-7">

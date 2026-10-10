@@ -19,19 +19,14 @@ export const site = {
 };
 
 export const hero = {
-  pill: "Product Marketer & Website Builder",
-  // Words wrapped in == == render in the accent color.
-  headline: "Growth for B2B SaaS \u2014 from the first ==cold email== to the ==launched website==.",
-  sub: "I\u2019m Hanzlah Malik. I run product marketing, ABM outbound and LinkedIn Ads for SaaS products \u2014 and I design and build React websites that turn those clicks into pipeline.",
+  pill: "Hanzlah Malik \u2014 Product Marketer",
+  headline: "I take B2B products ==to market== \u2014 from research and launch to the ==website== itself.",
+  sub: "Product marketing at the core: positioning, market research, LinkedIn ads, outbound, content and communities \u2014 plus React websites designed, written and shipped by me.",
 };
-
-// Big centered statement. **bold** spans render white, the rest gray.
-export const statement =
-  "The list, the sequence, the ads and the **landing page** — built by **one person**, aimed at the **same buyer**.";
 
 // One short paragraph. That's all the about section gets.
 export const about =
-  "I run product marketing at Market Pro across five B2B SaaS products — RegTech, KYC/AML, healthcare and AI. Research shapes the roadmap, outbound and LinkedIn ads hit the same accounts, and I design and build the pages they land on.";
+  "I\u2019m a product marketer at Market Pro, working across five B2B SaaS products \u2014 RegTech, KYC/AML, healthcare and AI. Research is where everything starts: it shapes the roadmap, the positioning, the ads and the pages. Before this: business development at TSoftek and Accountaxpert, and sales internships that taught me to close.";
 
 export type Stat = { target: number; suffix: string; label: string };
 
@@ -91,7 +86,7 @@ export type Service = {
   short: string; // one line for the home services grid
   accent: string;
   accentSoft: string;
-  visual: "code" | "design" | "outbound" | "pm" | "community";
+  visual: "code" | "design" | "outbound" | "pm" | "community" | "ads" | "content" | "research";
   seoTitle: string;
   seoDescription: string;
   keywords: string[];
@@ -108,45 +103,97 @@ export const services: Service[] = [
   {
     slug: "product-marketing",
     name: "Product Marketing",
-    short: "Positioning, launches and research that ships \u2014 not decks.",
-    accent: "#7c3aed",
-    accentSoft: "#f3eeff",
-    visual: "pm",
+    short: "Positioning, GTM and launches \u2014 run with the SEO and PPC teams.",
+    accent: "#7c3aed", accentSoft: "#f3eeff", visual: "pm",
     seoTitle: "Product Marketing Services \u2014 SaaS Positioning, GTM & Launches | Hanzlah Malik",
-    seoDescription:
-      "Product marketing for B2B SaaS: positioning and messaging, go-to-market strategy, competitor research, Product Hunt launches and sales enablement. Research that lands in the roadmap, the copy and the page.",
-    keywords: ["product marketing consultant", "SaaS positioning", "go-to-market strategy", "product launch marketing", "competitor research", "sales enablement"],
+    seoDescription: "Product marketing for B2B SaaS: positioning and messaging, go-to-market strategy, launch management, stakeholder communication and campaign coordination with SEO, PPC and content teams.",
+    keywords: ["product marketing consultant", "SaaS positioning", "go-to-market strategy", "product launch marketing", "stakeholder management", "sales enablement"],
     h1: "Product marketing that ships, not slides.",
-    sub: "Positioning, go-to-market and launch execution for B2B SaaS \u2014 grounded in market and competitor research that ends up in the roadmap, the messaging and the landing page.",
+    sub: "I own the path from research to launch: the positioning, the go-to-market plan, the launch itself, and the weekly coordination with SEO, PPC and content teams that keeps every channel telling the same story.",
     offerings: [
-      { t: "Positioning & messaging", d: "A sharp story per product and persona \u2014 tested against real competitor claims." },
-      { t: "Go-to-market strategy", d: "Channel, audience and launch sequencing for new products and features." },
-      { t: "Market & competitor research", d: "Research that feeds roadmap and pricing decisions, not a folder." },
-      { t: "Launches", d: "Product Hunt and launch-platform campaigns, end to end." },
-      { t: "Sales enablement", d: "Decks, one-pagers, battle cards and case studies your sales team actually uses." },
+      { t: "Positioning & messaging", d: "One sharp story per product and persona, tested against live competitor claims." },
+      { t: "Go-to-market & launches", d: "Launch strategy, sequencing and execution \u2014 Product Hunt included." },
+      { t: "Team coordination", d: "Aligning SEO, PPC and content teams on one campaign strategy." },
+      { t: "Stakeholder communication", d: "Keeping product, sales and leadership on the same page across products." },
+      { t: "Sales enablement", d: "Decks, one-pagers, battle cards and case studies sales actually uses." },
     ],
-    tools: ["Apollo", "LinkedIn Sales Navigator", "HubSpot", "Power BI", "GA4"],
+    tools: ["HubSpot", "Salesforce", "GA4", "Power BI", "Figma", "LinkedIn"],
     steps: [
-      { t: "Research", d: "Market, competitors, customers \u2014 the evidence first." },
-      { t: "Position", d: "Messaging, pricing input and launch narrative." },
-      { t: "Ship", d: "Pages, campaigns and enablement that carry it to buyers." },
+      { t: "Research first", d: "Market, competitors and users \u2014 evidence before opinions." },
+      { t: "Position & plan", d: "Messaging, GTM sequencing, channel owners briefed." },
+      { t: "Launch & iterate", d: "Ship the campaign, read the data, sharpen weekly." },
     ],
     proof: [
       "5+ B2B SaaS products marketed across RegTech, KYC/AML, healthcare and AI",
-      "Managed the Barie 2.0 relaunch on Product Hunt and launch platforms",
+      "Barie 2.0 relaunch on Product Hunt managed end to end",
     ],
     skillsGroup: "Product Marketing",
   },
   {
+    slug: "market-research",
+    name: "Market & Product Research",
+    short: "The thing everything else is built on \u2014 accounts, rivals, platforms.",
+    accent: "#0d9488", accentSoft: "#e7f7f4", visual: "research",
+    seoTitle: "Market Research & Competitor Analysis for B2B SaaS | Hanzlah Malik",
+    seoDescription: "Market, competitor and product research for B2B SaaS: ICP and account research, competitor teardowns, platform and channel research, and insight reports that feed roadmaps, positioning and campaigns.",
+    keywords: ["market research B2B", "competitor analysis SaaS", "ICP research", "product research", "competitive intelligence", "account research"],
+    h1: "Every good campaign starts as good research.",
+    sub: "Research is the first thing I do on any product \u2014 the accounts, the competitors, the platforms, the gaps. It feeds the roadmap, the positioning, the lists and the pages, instead of dying in a document.",
+    offerings: [
+      { t: "Competitor teardowns", d: "Claims, pricing, funnels and positioning \u2014 mapped and monitored." },
+      { t: "ICP & account research", d: "Who actually buys, who decides, and where to find them." },
+      { t: "Platform & channel research", d: "Which communities, networks and listings are worth your time." },
+      { t: "Product research", d: "User needs and market trends that shape roadmap decisions." },
+      { t: "Insight reporting", d: "Findings as decisions \u2014 briefs that teams can act on Monday." },
+    ],
+    tools: ["ChatGPT", "Claude", "Grok", "LinkedIn Sales Navigator", "Crunchbase", "Power BI"],
+    steps: [
+      { t: "Collect", d: "Primary sources, platforms, data pulls." },
+      { t: "Synthesize", d: "Patterns, gaps and angles that matter." },
+      { t: "Hand off", d: "Briefs wired into roadmap, copy and campaigns." },
+    ],
+    proof: [
+      "Research runs through every list, campaign and page I ship",
+      "Product research informing roadmap and positioning across five products",
+    ],
+    skillsGroup: "Product Marketing",
+  },
+  {
+    slug: "linkedin-ads",
+    name: "LinkedIn Ads",
+    short: "Campaigns aimed at the same accounts the outbound hits.",
+    accent: "#0a66c2", accentSoft: "#e9f1fb", visual: "ads",
+    seoTitle: "LinkedIn Ads Management for B2B SaaS \u2014 ABM Campaigns | Hanzlah Malik",
+    seoDescription: "LinkedIn Ads management: campaign setup, ABM audience building from real account lists, creative briefs, budget management and performance tracking \u2014 coordinated with SEO and PPC teams for one campaign strategy.",
+    keywords: ["LinkedIn Ads management", "LinkedIn ABM campaigns", "B2B LinkedIn advertising", "LinkedIn audience targeting", "LinkedIn ads agency alternative"],
+    h1: "LinkedIn ads that know exactly who they\u2019re for.",
+    sub: "Audiences built from the same account lists the cold email hits \u2014 so the buying committee sees one message everywhere. Setup, creative briefs, budgets and the weekly read of what\u2019s working.",
+    offerings: [
+      { t: "Campaign setup & structure", d: "Objectives, formats and naming that keep accounts manageable." },
+      { t: "ABM audience building", d: "Matched audiences from outbound lists \u2014 not LinkedIn\u2019s guesses." },
+      { t: "Creative & copy briefs", d: "Ad angles and design briefs that earn the scroll-stop." },
+      { t: "Budget & pacing", d: "Spend watched daily; losers cut, winners fed." },
+      { t: "Performance tracking", d: "From impressions to meetings \u2014 reported in language execs read." },
+    ],
+    tools: ["LinkedIn Ads", "LinkedIn Sales Navigator", "GA4", "Power BI", "Canva"],
+    steps: [
+      { t: "Audience", d: "Account lists in, matched audiences out." },
+      { t: "Launch", d: "Creative variants live against clear objectives." },
+      { t: "Optimize", d: "Weekly cuts and doubles based on the data." },
+    ],
+    proof: [
+      "LinkedIn ads run alongside outbound as one ABM motion",
+      "Campaigns coordinated with SEO and PPC teams on shared strategy",
+    ],
+    skillsGroup: "Paid & Social",
+  },
+  {
     slug: "email-outbound",
     name: "Email & Outbound (ABM)",
-    short: "Cold email and LinkedIn ads on the same accounts \u2014 one motion.",
-    accent: "#2563eb",
-    accentSoft: "#eff4ff",
-    visual: "outbound",
+    short: "Cold email in Apollo and Instantly \u2014 lists, copy, follow-ups.",
+    accent: "#2563eb", accentSoft: "#eff4ff", visual: "outbound",
     seoTitle: "Cold Email & Outbound Marketing Services \u2014 ABM, Apollo & Instantly | Hanzlah Malik",
-    seoDescription:
-      "Outbound lead generation for B2B SaaS: cold email campaigns in Apollo and Instantly, LinkedIn Sales Navigator prospecting, list building, ICP segmentation and ABM \u2014 with LinkedIn Ads run on the same account lists.",
+    seoDescription: "Outbound lead generation for B2B SaaS: cold email campaigns in Apollo and Instantly, LinkedIn Sales Navigator prospecting, list building, ICP segmentation and ABM with LinkedIn Ads on the same account lists.",
     keywords: ["cold email campaigns", "outbound lead generation", "ABM marketing", "Apollo cold email", "LinkedIn Sales Navigator prospecting", "B2B list building"],
     h1: "Outbound that lands in the right inbox.",
     sub: "Cold email and LinkedIn ads aimed at the same account lists, so every stakeholder hears one message \u2014 lists built from a real ICP, sequences written to get replies, follow-ups that don\u2019t let deals die.",
@@ -157,7 +204,7 @@ export const services: Service[] = [
       { t: "LinkedIn prospecting", d: "Sales Navigator outreach to decision makers who fit." },
       { t: "Reporting", d: "Reply, meeting and pipeline tracking \u2014 adjust lists, copy, targeting." },
     ],
-    tools: ["Apollo", "Instantly", "Salesforce", "LinkedIn Sales Navigator", "LinkedIn Ads", "HubSpot", "Zoho"],
+    tools: ["Apollo", "Instantly", "Salesforce", "LinkedIn Sales Navigator", "HubSpot", "Zoho"],
     steps: [
       { t: "Build", d: "ICP, lists and segments from clean data." },
       { t: "Launch", d: "Sequences + matching ad audiences together." },
@@ -170,26 +217,52 @@ export const services: Service[] = [
     skillsGroup: "Outbound & ABM",
   },
   {
+    slug: "content-social",
+    name: "Content & Social Media",
+    short: "Research-led strategy, calendars and posts that ship weekly.",
+    accent: "#db2777", accentSoft: "#fdeef5", visual: "content",
+    seoTitle: "Content Strategy & Social Media Marketing for B2B SaaS | Hanzlah Malik",
+    seoDescription: "Content and social media marketing for B2B SaaS: keyword and topic research, content strategy, social calendars, industry and product posts, newsletters in HubSpot and Substack, and coordination with SEO teams.",
+    keywords: ["B2B content strategy", "social media marketing SaaS", "LinkedIn content strategy", "content calendar management", "B2B newsletters", "topic research"],
+    h1: "Content with a strategy, not a streak.",
+    sub: "Research decides what gets posted: which keywords and topics are moving, which industry angles earn attention, when to push product and when to teach. Then the calendar runs \u2014 posts, newsletters and the SEO team aligned.",
+    offerings: [
+      { t: "Content strategy", d: "Keyword and topic research turned into a plan with owners and dates." },
+      { t: "Social calendars", d: "Industry, product and brand posts \u2014 planned, written, scheduled." },
+      { t: "Post copy & briefs", d: "Copy plus design briefs for carousels and statics." },
+      { t: "Newsletters", d: "HubSpot and Substack \u2014 copy, design and sends." },
+      { t: "SEO team alignment", d: "Content tracked against gaps the SEO team needs filled." },
+    ],
+    tools: ["LinkedIn", "Substack", "HubSpot", "Canva", "ChatGPT", "Claude"],
+    steps: [
+      { t: "Research", d: "Topics, keywords and angles worth the feed." },
+      { t: "Plan", d: "Calendar with a reason behind every slot." },
+      { t: "Publish", d: "Ship, measure, and feed winners back in." },
+    ],
+    proof: [
+      "Managed socials across multiple products \u2014 Barie, AML Watcher, Notiro",
+      "Newsletters built and sent in HubSpot for multiple products",
+    ],
+    skillsGroup: "Content & Email",
+  },
+  {
     slug: "web-development",
     name: "Website Development",
     short: "React & Next.js sites \u2014 design to copy to deployment.",
-    accent: "#059669",
-    accentSoft: "#eafaf3",
-    visual: "code",
+    accent: "#059669", accentSoft: "#eafaf3", visual: "code",
     seoTitle: "React & Next.js Website Development \u2014 Design to Deployment | Hanzlah Malik",
-    seoDescription:
-      "React and Next.js website development for startups and SaaS: landing pages and marketing sites designed in Figma, written for conversion and SEO, built in React/Next.js with Tailwind, and deployed on Vercel with GA4 tracking.",
-    keywords: ["React website developer", "Next.js landing page", "marketing website development", "Vercel deployment", "website copywriting", "GA4 setup"],
+    seoDescription: "React and Next.js website development for startups and SaaS: landing pages and marketing sites designed in Figma, written for conversion and SEO, built with Tailwind, animated, and deployed on Vercel with GA4 tracking.",
+    keywords: ["React website developer", "Next.js landing page", "marketing website development", "website animations", "Vercel deployment", "GA4 setup"],
     h1: "Websites built like products: design, copy, code, deploy.",
-    sub: "One person from Figma to production \u2014 I design the page, write the copy, build it in React and Next.js with Tailwind, deploy it on Vercel and wire GA4 so you know what happened. This site is one of them.",
+    sub: "One person from Figma to production \u2014 I design the page, write the copy, build it in React and Next.js with Tailwind, add the animations, deploy on Vercel and wire GA4. This site is one of them.",
     offerings: [
       { t: "Landing pages & marketing sites", d: "Conversion-first pages for products, launches and campaigns." },
       { t: "Design in Figma", d: "User flows and layouts before a line of code." },
       { t: "Copywriting", d: "Clear, SEO-aware copy written with the design, not after it." },
-      { t: "React / Next.js build", d: "Fast, responsive, accessible \u2014 Tailwind, App Router, static-first." },
-      { t: "Deploy & measure", d: "Vercel deployment, domains, and GA4 behaviour tracking." },
+      { t: "React / Next.js build", d: "Fast, responsive, accessible \u2014 with tasteful animations." },
+      { t: "Deploy & measure", d: "Vercel, domains, GA4 behaviour tracking." },
     ],
-    tools: ["Figma", "Next.js", "Tailwind CSS", "Vercel", "GA4", "Claude & AI tools"],
+    tools: ["Figma", "Next.js", "Tailwind CSS", "Claude Code", "VS Code", "Vercel", "GA4"],
     steps: [
       { t: "Design", d: "Figma flows and layouts from research." },
       { t: "Build", d: "React/Next.js, reviewed at every breakpoint." },
@@ -202,30 +275,27 @@ export const services: Service[] = [
     skillsGroup: "Web, Design & Analytics",
   },
   {
-    slug: "ui-ux-design",
-    name: "UI/UX Design",
-    short: "Figma design and user flows that convert \u2014 AI-accelerated.",
-    accent: "#e11d48",
-    accentSoft: "#ffeef2",
-    visual: "design",
-    seoTitle: "UI/UX & Figma Design Services \u2014 Landing Pages That Convert | Hanzlah Malik",
-    seoDescription:
-      "UI/UX design in Figma for SaaS and startups: landing page design, user flows, website redesigns and conversion-focused layouts \u2014 accelerated with AI design tools like Claude and ChatGPT, informed by GA4 behaviour data.",
-    keywords: ["Figma designer", "UI UX design services", "landing page design", "user flow design", "website redesign", "conversion design"],
-    h1: "Design that starts with the user flow, not the mood board.",
-    sub: "Figma design for pages people actually finish: user flows and layouts built from research and GA4 behaviour, polished with AI design tools, and handed over ready to build \u2014 or built by me.",
+    slug: "product-design",
+    name: "Product Design Support",
+    short: "Figma flows, briefs and AI-accelerated design iteration.",
+    accent: "#e11d48", accentSoft: "#ffeef2", visual: "design",
+    seoTitle: "Product Design Support \u2014 Figma Flows, Briefs & AI Iteration | Hanzlah Malik",
+    seoDescription: "Product design support for SaaS teams: user flows and wireframes in Figma, website enhancement designs, design briefs for designers, animation prototyping in Figma Make, and AI-accelerated iteration with Claude and ChatGPT.",
+    keywords: ["product design support", "Figma wireframes", "user flow design", "design briefs", "Figma Make animation", "AI design workflow"],
+    h1: "Design support that speaks marketer and maker.",
+    sub: "I\u2019m not a pixel-perfect designer \u2014 I\u2019m the person who turns research into user flows, wireframes and design briefs in Figma, prototypes animations in Figma Make, and iterates fast with Claude and ChatGPT until it\u2019s ready to build.",
     offerings: [
-      { t: "Landing page design", d: "Layouts engineered for the scroll, the skim and the click." },
-      { t: "User flows", d: "From first visit to converted \u2014 mapped before pixels." },
-      { t: "Website redesigns", d: "Audits of real behaviour, then design that fixes what leaks." },
-      { t: "Design systems", d: "Tokens, type scales and components that keep pages consistent." },
+      { t: "User flows & wireframes", d: "From research to flows the team can argue with." },
+      { t: "Website enhancement design", d: "Layout and UX improvements designed in Figma, validated in GA4." },
+      { t: "Design briefs", d: "Briefs that give designers direction instead of guesswork." },
+      { t: "Animation prototyping", d: "Motion explored in Figma Make before engineering time is spent." },
       { t: "AI-accelerated iteration", d: "Claude and ChatGPT in the loop \u2014 more directions, faster." },
     ],
-    tools: ["Figma", "Canva", "Claude", "ChatGPT", "GA4"],
+    tools: ["Figma", "Figma Make", "Claude", "ChatGPT", "Canva", "GA4"],
     steps: [
       { t: "Map", d: "Flows and intent before any visuals." },
-      { t: "Design", d: "Figma layouts, variants explored fast with AI." },
-      { t: "Validate", d: "GA4 and CRO review after it ships." },
+      { t: "Draft", d: "Wireframes and variants, explored fast." },
+      { t: "Hand off", d: "Briefs and files ready for design or build." },
     ],
     proof: [
       "Website enhancements designed in Figma across five SaaS products",
@@ -235,33 +305,30 @@ export const services: Service[] = [
   },
   {
     slug: "community-growth",
-    name: "Community & Influencers",
-    short: "Reddit, Discord, Product Hunt and creators \u2014 where ads can\u2019t go.",
-    accent: "#d97706",
-    accentSoft: "#fdf3e3",
-    visual: "community",
-    seoTitle: "Community Marketing & Influencer Outreach \u2014 Reddit, Discord, Product Hunt | Hanzlah Malik",
-    seoDescription:
-      "Community-led growth for SaaS: Reddit and Discord community building, influencer outreach and management, Product Hunt launches, and placements in Facebook groups, Quora and Medium \u2014 for audiences paid ads can\u2019t reach.",
-    keywords: ["community marketing", "Reddit marketing", "Discord community growth", "influencer outreach", "Product Hunt launch", "SaaS community building"],
+    name: "Community & Partnerships",
+    short: "Reddit, Discord, Product Hunt, creators, listings and partners.",
+    accent: "#d97706", accentSoft: "#fdf3e3", visual: "community",
+    seoTitle: "Community Marketing, Influencer Outreach & Partnerships | Hanzlah Malik",
+    seoDescription: "Community-led growth for SaaS: Reddit and Discord community building, influencer marketing and outreach, platform partnerships, Product Hunt launches, directory and listing submissions for backlinks, and Substack presence.",
+    keywords: ["community marketing", "influencer outreach", "SaaS partnerships", "Product Hunt launch", "directory listings backlinks", "Reddit marketing", "Discord community growth"],
     h1: "Growth where your buyers actually hang out.",
-    sub: "Some audiences never click an ad. I build presence in the communities they trust \u2014 Reddit, Discord, Quora, Medium, Facebook groups \u2014 and recruit the creators they already listen to.",
+    sub: "Some audiences never click an ad. I build presence in the communities they trust, recruit the creators they already follow, and open partnerships with the platforms they use \u2014 plus the listings and directories that quietly stack backlinks.",
     offerings: [
-      { t: "Community engagement", d: "Genuine presence and placements, approved by community leaders." },
-      { t: "Influencer outreach", d: "Finding creators, negotiating, managing the follow-through." },
-      { t: "Launch pushes", d: "Product Hunt and platform launches with community momentum." },
-      { t: "Directories & listings", d: "The long tail of discovery, registered and maintained." },
-      { t: "Social content", d: "Calendars, post copy and design briefs that keep channels alive." },
+      { t: "Community engagement", d: "Reddit, Discord, Quora, Medium, Facebook groups \u2014 placements approved by community leaders." },
+      { t: "Influencer marketing", d: "Finding creators, negotiating, managing the follow-through." },
+      { t: "Partnerships", d: "Outreach and coordination with platforms and complementary services." },
+      { t: "Listings & directories", d: "Products registered across listing platforms \u2014 discovery plus backlinks." },
+      { t: "Launch pushes", d: "Product Hunt and launch platforms with community momentum behind them." },
     ],
-    tools: ["Reddit", "Discord", "Product Hunt", "LinkedIn", "Canva", "HubSpot"],
+    tools: ["Reddit", "Discord", "Product Hunt", "Substack", "LinkedIn", "HubSpot"],
     steps: [
       { t: "Find", d: "Where the ICP actually spends time." },
       { t: "Join", d: "Contribute first; placements come after trust." },
-      { t: "Amplify", d: "Creators and launches on top of the base." },
+      { t: "Amplify", d: "Creators, partners and launches on top." },
     ],
     proof: [
-      "Ran community engagement for an AI product across Reddit and Discord",
-      "Barie 2.0 Product Hunt relaunch managed end to end",
+      "Community engagement run for an AI product across Reddit and Discord",
+      "Influencer, clipping and listing-platform outreach handled end to end",
     ],
     skillsGroup: "Paid & Social",
   },
@@ -337,6 +404,15 @@ export const toolsKit: Tool[] = [
   { name: "Power BI", src: "/tools/powerbi.svg" },
   { name: "Zoho", src: "/tools/zoho.svg" },
   { name: "Next.js", src: "/tools/nextdotjs.svg" },
+  { name: "ChatGPT", src: "/tools/openai.svg" },
+  { name: "Claude", src: "/tools/claude.svg" },
+  { name: "Grok", mono: { text: "G", bg: "#101014", fg: "#ffffff" } },
+  { name: "VS Code", mono: { text: "VS", bg: "#2563eb", fg: "#ffffff" } },
+  { name: "Figma Make", src: "/tools/figma.svg" },
+  { name: "Substack", src: "/tools/substack.svg" },
+  { name: "Reddit", src: "/tools/reddit.svg" },
+  { name: "Discord", src: "/tools/discord.svg" },
+  { name: "Product Hunt", src: "/tools/producthunt.svg" },
 ];
 
 export type SideProject = { title: string; note?: string; line: string };

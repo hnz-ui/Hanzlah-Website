@@ -1,16 +1,12 @@
 import Link from "next/link";
 import { site, services, socials } from "@/content";
-import Logo from "./Logo";
 
 export default function Footer() {
   return (
     <footer className="border-t border-line bg-surface">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:px-8 md:grid-cols-[1.5fr_1fr_1fr]">
         <div>
-          <div className="flex items-center gap-2.5">
-            <Logo size={30} />
-            <span className="display text-lg text-ink">{site.name}</span>
-          </div>
+          <span className="display text-lg text-ink">{site.name}</span>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-mut">
             {site.role} — {site.location}. Product marketing, outbound and
             React websites for B2B SaaS.

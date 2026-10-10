@@ -50,7 +50,7 @@ export default function ServicePage({ service }: { service: Service }) {
 
         {/* offerings */}
         <section className="mx-auto max-w-6xl px-6 py-16 sm:px-8 sm:py-24">
-          <h2 className="display reveal text-3xl text-ink">What’s included</h2>
+          <h2 className="display reveal text-3xl text-ink">What I handle</h2>
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {service.offerings.map((o) => (
               <div key={o.t} className="reveal card card--lift p-6">
@@ -65,7 +65,7 @@ export default function ServicePage({ service }: { service: Service }) {
         <section className="border-y border-line bg-surface">
           <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 sm:px-8 sm:py-20 lg:grid-cols-2">
             <div>
-              <h2 className="display reveal text-3xl text-ink">How it works</h2>
+              <h2 className="display reveal text-3xl text-ink">The process</h2>
               <ol className="mt-7 space-y-5">
                 {service.steps.map((st, i) => (
                   <li key={st.t} className="reveal flex gap-4">
@@ -81,7 +81,7 @@ export default function ServicePage({ service }: { service: Service }) {
               </ol>
             </div>
             <div>
-              <h2 className="display reveal text-3xl text-ink">Receipts</h2>
+              <h2 className="display reveal text-3xl text-ink">Proof</h2>
               <ul className="mt-7 space-y-4">
                 {service.proof.map((pr) => (
                   <li key={pr} className="reveal flex gap-3 text-mut">

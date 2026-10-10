@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import type { Service } from "@/content";
 
-/** Small themed illustration per service — pure CSS/SVG, no JS. */
+/** Themed illustration per service — pure CSS/SVG, no JS. */
 export default function ServiceVisual({
   kind,
   accent,
@@ -34,7 +35,7 @@ export default function ServiceVisual({
           {["-left-1 -top-1","-right-1 -top-1","-left-1 -bottom-1","-right-1 -bottom-1"].map(c => (
             <span key={c} className={`absolute ${c} size-2 border bg-white`} style={{ borderColor: accent }} />
           ))}
-          <span className="absolute -top-7 left-0 rounded px-1.5 py-0.5 text-[0.6rem] font-semibold text-white" style={{ background: accent }}>Hero / 1440</span>
+          <span className="absolute -top-7 left-0 rounded px-1.5 py-0.5 text-[0.6rem] font-semibold text-white" style={{ background: accent }}>Flow / Hero</span>
           <div className="p-4">
             <div className="h-2.5 w-3/4 rounded-sm bg-surface-2" />
             <div className="mt-2 h-2.5 w-1/2 rounded-sm bg-surface-2" />
@@ -63,51 +64,110 @@ export default function ServiceVisual({
 
   if (kind === "pm")
     return (
-      <div className="card relative w-full p-8 shadow-[6px_6px_0_var(--acc)]">
-        <div className="relative mx-auto h-44 max-w-[260px]">
-          <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-line" />
-          <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-line" />
-          <span className="absolute left-1/2 top-[-1.4rem] -translate-x-1/2 text-[0.6rem] font-semibold uppercase text-dim">Premium</span>
-          <span className="absolute bottom-[-1.4rem] left-1/2 -translate-x-1/2 text-[0.6rem] font-semibold uppercase text-dim">Simple</span>
-          {[["18%","30%"],["68%","22%"],["30%","68%"]].map(([l,t],i)=>(
-            <span key={i} className="absolute size-3 rounded-full bg-dim/50" style={{ left:l, top:t }} />
+      <div className="card w-full p-6 shadow-[6px_6px_0_var(--acc)]">
+        <p className="text-xs font-semibold uppercase tracking-wider text-dim">Launch plan — Q4</p>
+        <ul className="mt-4 space-y-3">
+          {[
+            { t: "Research & positioning", done: true },
+            { t: "Messaging locked with sales", done: true },
+            { t: "SEO + PPC teams briefed", done: true },
+            { t: "Landing page live", done: true },
+            { t: "Product Hunt launch", done: false },
+          ].map((it) => (
+            <li key={it.t} className="flex items-center gap-3 text-sm">
+              <span
+                className="grid size-5 shrink-0 place-items-center rounded-md border text-[0.6rem] font-bold text-white"
+                style={{ background: it.done ? accent : "transparent", borderColor: it.done ? accent : "var(--border)" }}
+              >
+                {it.done ? "✓" : ""}
+              </span>
+              <span className={it.done ? "text-ink" : "text-dim"}>{it.t}</span>
+              {!it.done && <span className="ml-auto rounded px-1.5 py-0.5 text-[0.6rem] font-bold text-white" style={{ background: accent }}>NEXT</span>}
+            </li>
           ))}
-          <span className="absolute size-5 rounded-full border-2 border-white shadow-md" style={{ left: "62%", top: "58%", background: accent }} />
-          <span className="absolute rounded px-1.5 py-0.5 text-[0.6rem] font-bold text-white" style={{ left: "52%", top: "74%", background: accent }}>You are here</span>
+        </ul>
+      </div>
+    );
+
+  if (kind === "ads")
+    return (
+      <div className="card w-full p-6 shadow-[6px_6px_0_var(--acc)]">
+        <div className="flex items-baseline justify-between">
+          <p className="text-xs font-semibold uppercase tracking-wider text-dim">Campaign — ABM / Decision makers</p>
+          <span className="text-xs font-bold" style={{ color: accent }}>Active</span>
+        </div>
+        <div className="mt-5 flex h-28 items-end gap-2">
+          {[35, 55, 42, 70, 62, 88, 100].map((h, i) => (
+            <span key={i} className="flex-1 rounded-t-md" style={{ height: `${h}%`, background: accent, opacity: 0.25 + (i / 7) * 0.75 }} />
+          ))}
+        </div>
+        <div className="mt-4 grid grid-cols-3 gap-3 border-t border-line pt-4 text-center">
+          {[["CTR", "1.9%"], ["CPL", "−38%"], ["Meetings", "+14"]].map(([k, v]) => (
+            <div key={k}><p className="text-[0.65rem] uppercase text-dim">{k}</p><p className="display text-lg text-ink">{v}</p></div>
+          ))}
         </div>
       </div>
     );
 
-  // community
-  const sats: { r: string; d: string; delay: string; e: string }[] = [
-    { r: "7rem", d: "16s", delay: "0s", e: "\u{1F680}" },
-    { r: "7rem", d: "16s", delay: "-8s", e: "\u{1F4AC}" },
-    { r: "4.5rem", d: "10s", delay: "0s", e: "\u2B50" },
-    { r: "4.5rem", d: "10s", delay: "-5s", e: "\u{1F464}" },
+  if (kind === "content")
+    return (
+      <div className="card w-full p-6 shadow-[6px_6px_0_var(--acc)]">
+        <p className="text-xs font-semibold uppercase tracking-wider text-dim">Content calendar — week 42</p>
+        <div className="mt-4 grid grid-cols-5 gap-2 text-center text-[0.6rem] font-semibold text-dim">
+          {["Mon", "Tue", "Wed", "Thu", "Fri"].map((d) => <span key={d}>{d}</span>)}
+          {[
+            { l: "Industry post", on: true }, { l: "—", on: false }, { l: "Product post", on: true },
+            { l: "Newsletter", on: true }, { l: "Carousel", on: true },
+          ].map((c, i) => (
+            <span key={i} className="rounded-md border px-1 py-2 text-[0.58rem] leading-tight" style={c.on ? { background: accent, color: "#fff", borderColor: accent } : { borderColor: "var(--border)", color: "var(--dim)" }}>
+              {c.l}
+            </span>
+          ))}
+        </div>
+        <p className="mt-4 border-t border-line pt-3 text-xs text-mut">Every slot backed by topic research — nothing posted “just to post”.</p>
+      </div>
+    );
+
+  if (kind === "research")
+    return (
+      <div className="card w-full p-6 shadow-[6px_6px_0_var(--acc)]">
+        <p className="text-xs font-semibold uppercase tracking-wider text-dim">Competitor teardown — pricing page</p>
+        <ul className="mt-4 space-y-2.5">
+          {[
+            ["Gap", "No one owns “compliance speed” messaging"],
+            ["Risk", "Competitor X undercut entry tier by 30%"],
+            ["Move", "Lead with time-to-value proof on the page"],
+          ].map(([k, v]) => (
+            <li key={k} className="flex gap-3 text-sm">
+              <span className="w-10 shrink-0 rounded px-1.5 py-0.5 text-center text-[0.6rem] font-bold text-white" style={{ background: accent }}>{k}</span>
+              <span className="leading-snug text-mut">{v}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-4 border-t border-line pt-3 text-xs text-dim">→ shipped to roadmap, copy and campaign briefs</p>
+      </div>
+    );
+
+  // community — real platform logos orbiting
+  const sats = [
+    { r: "7rem", d: "18s", delay: "0s", src: "/tools/reddit.svg" },
+    { r: "7rem", d: "18s", delay: "-9s", src: "/tools/discord.svg" },
+    { r: "4.5rem", d: "11s", delay: "0s", src: "/tools/producthunt.svg" },
+    { r: "4.5rem", d: "11s", delay: "-3.7s", src: "/tools/substack.svg" },
+    { r: "4.5rem", d: "11s", delay: "-7.4s", src: "/tools/linkedin.svg" },
   ];
   return (
     <div className="card relative mx-auto grid aspect-square w-full max-w-[300px] place-items-center overflow-hidden rounded-full p-6">
       <span className="absolute inset-8 rounded-full border border-dashed border-line" />
       <span className="absolute inset-20 rounded-full border border-dashed border-line" />
-      <span
-        className="display grid size-16 place-items-center rounded-full text-xl text-white"
-        style={{ background: accent }}
-      >
-        H
-      </span>
+      <span className="display grid size-16 place-items-center rounded-full text-xl text-white" style={{ background: accent }}>H</span>
       {sats.map((sat, i) => (
         <span
           key={i}
-          className="orbit absolute grid size-9 place-items-center rounded-full border border-line bg-surface text-sm shadow-sm"
-          style={
-            {
-              "--r": sat.r,
-              "--d": sat.d,
-              animationDelay: sat.delay,
-            } as React.CSSProperties
-          }
+          className="orbit absolute grid size-10 place-items-center rounded-full border border-line bg-surface shadow-sm"
+          style={{ "--r": sat.r, "--d": sat.d, animationDelay: sat.delay } as React.CSSProperties}
         >
-          {sat.e}
+          <img src={sat.src} alt="" className="size-5" />
         </span>
       ))}
     </div>
