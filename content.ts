@@ -19,9 +19,9 @@ export const site = {
 };
 
 export const hero = {
-  pill: "Product Marketer",
-  headline: "Hey, I\u2019m ==Hanzlah==.",
-  sub: "I market products across B2B, B2C and personal brands: research, launches, LinkedIn ads, outbound and content. And I build the websites myself, in React.",
+  intro: "Hey, I\u2019m Hanzlah.",
+  headline: "Product Marketing ==& Growth==.",
+  sub: "I help products and brands grow: marketing strategy, lead generation, launches, and the websites that turn attention into revenue.",
 };
 
 export const about =

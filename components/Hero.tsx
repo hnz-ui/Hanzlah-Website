@@ -19,6 +19,13 @@ function Headline({ text }: { text: string }) {
   );
 }
 
+const categories = [
+  { label: "B2B & B2C", dot: "#2563eb", pos: "-left-4 top-14 rotate-[-4deg]" },
+  { label: "SaaS", dot: "#7c3aed", pos: "-right-4 top-28 rotate-[3deg]" },
+  { label: "Website Development", dot: "#059669", pos: "-left-5 bottom-32 rotate-[2deg]" },
+  { label: "Personal Branding", dot: "#d97706", pos: "-right-3 bottom-14 rotate-[-3deg]" },
+];
+
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
@@ -29,21 +36,21 @@ export default function Hero() {
 
       <div className="relative mx-auto grid min-h-[86svh] max-w-6xl items-center gap-12 px-6 py-20 sm:px-8 lg:grid-cols-[1.35fr_1fr]">
         <div>
-          <span className="chip rise">{hero.pill}</span>
+          <p className="display rise text-xl text-mut sm:text-2xl">{hero.intro}</p>
           <h1
-            className="display rise mt-7 text-[clamp(2.8rem,6.4vw,5rem)] text-ink"
+            className="display rise mt-3 text-[clamp(2.9rem,6.8vw,5.4rem)] text-ink"
             style={{ animationDelay: "90ms" }}
           >
             <Headline text={hero.headline} />
           </h1>
           <p
-            className="rise mt-7 max-w-xl text-lg leading-relaxed text-mut"
+            className="rise mt-6 max-w-xl text-lg leading-relaxed text-mut"
             style={{ animationDelay: "180ms" }}
           >
             {hero.sub}
           </p>
           <div
-            className="rise mt-10 flex flex-wrap items-center gap-4"
+            className="rise mt-9 flex flex-wrap items-center gap-4"
             style={{ animationDelay: "260ms" }}
           >
             <Link href="/services" className="btn">
@@ -61,13 +68,27 @@ export default function Hero() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/me.png"
-              alt="Hanzlah Malik, product marketer and website builder"
+              alt="Hanzlah Malik, product marketer"
               className="relative mx-auto block w-[86%] drop-shadow-xl"
             />
           </div>
-          <span className="chip absolute -left-3 top-16 rotate-[-4deg] bg-surface !text-xs shadow-sm">B2B &amp; B2C SaaS</span>
-          <span className="chip absolute -right-3 bottom-24 rotate-[3deg] bg-surface !text-xs shadow-sm">Personal brands</span>
-          <span className="chip absolute -right-2 top-36 rotate-[2deg] bg-surface !text-xs shadow-sm">React websites</span>
+          {categories.map((c) => (
+            <span
+              key={c.label}
+              className={`chip absolute ${c.pos} hidden bg-surface !text-xs shadow-sm sm:inline-flex`}
+            >
+              <span className="size-1.5 rounded-full" style={{ background: c.dot }} />
+              {c.label}
+            </span>
+          ))}
+          <div className="mt-4 flex flex-wrap justify-center gap-2 sm:hidden">
+            {categories.map((c) => (
+              <span key={c.label} className="chip !text-xs">
+                <span className="size-1.5 rounded-full" style={{ background: c.dot }} />
+                {c.label}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>

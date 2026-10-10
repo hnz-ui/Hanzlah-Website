@@ -12,7 +12,6 @@ export default function ToolsWheel() {
 
   // Auto-advance, paused on hover and under reduced motion.
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = setInterval(() => {
       if (!hover.current) setActive((a) => (a + 1) % toolWheel.length);
     }, 2000);
