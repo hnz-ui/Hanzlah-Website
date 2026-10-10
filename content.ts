@@ -87,6 +87,58 @@ export const capabilities: Capability[] = [
   { group: "Web & Analytics", line: "Pages designed, built and measured by one pair of hands." },
 ];
 
+export type SkillGroup = { group: string; items: string[] };
+
+// The full skill inventory — rendered as grouped chips.
+export const skillGroups: SkillGroup[] = [
+  {
+    group: "Outbound & ABM",
+    items: [
+      "Cold Email Campaigns", "Lead Research", "List Building",
+      "ICP Segmentation", "Apollo", "Instantly",
+      "LinkedIn Sales Navigator", "Follow-up Sequences",
+    ],
+  },
+  {
+    group: "Paid & Social",
+    items: [
+      "LinkedIn Ads", "Audience Building", "Campaign Tracking",
+      "Instagram Boosting", "Content Calendars", "Community Engagement",
+      "Reddit & Discord", "Influencer Outreach",
+    ],
+  },
+  {
+    group: "Product Marketing",
+    items: [
+      "Positioning & Messaging", "Product Research", "Competitor Research",
+      "Market Research", "Product Hunt Launches", "GTM Strategy",
+      "Case Studies", "Sales Enablement", "Stakeholder Management",
+    ],
+  },
+  {
+    group: "Content & Email",
+    items: [
+      "Content Strategy", "Blog Topic Research", "SEO Alignment",
+      "PPC Coordination", "Newsletters", "HubSpot Automation", "Copywriting",
+    ],
+  },
+  {
+    group: "Web, Design & Analytics",
+    items: [
+      "Landing Pages", "Figma", "User Flows", "Next.js", "Tailwind CSS",
+      "GA4", "CRO & UX Review", "Canva", "Power BI",
+    ],
+  },
+  {
+    group: "Sales & BD",
+    items: [
+      "B2B Sales", "Proposal Writing", "Objection Handling",
+      "Client Communication", "HubSpot", "Zoho", "Salesforce",
+      "Upwork BD", "Client Onboarding",
+    ],
+  },
+];
+
 export type Tool = {
   name: string;
   src?: string;

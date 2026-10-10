@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { hero } from "@/content";
 import ShaderBg from "./ShaderBg";
 import LocalTime from "./LocalTime";
@@ -39,11 +41,23 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* bottom-right paragraph */}
-        <div className="rise flex justify-end" style={{ animationDelay: "320ms" }}>
+        {/* bottom-right: closing line + portrait (photo appears once
+            public/me.jpg exists — checked at build time) */}
+        <div
+          className="rise flex items-end justify-end gap-6"
+          style={{ animationDelay: "320ms" }}
+        >
           <p className="max-w-sm text-right text-sm leading-relaxed text-mut">
             {hero.sub}
           </p>
+          {fs.existsSync(path.join(process.cwd(), "public", "me.jpg")) && (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              src="/me.jpg"
+              alt="Hanzlah Malik"
+              className="hidden w-40 shrink-0 rounded-xl border border-line grayscale transition-[filter] duration-500 hover:grayscale-0 sm:block md:w-48"
+            />
+          )}
         </div>
       </div>
     </section>

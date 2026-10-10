@@ -4,6 +4,7 @@ import Work from "@/components/Work";
 import Statement from "@/components/Statement";
 import About from "@/components/About";
 import WhatIDo from "@/components/WhatIDo";
+import Skills from "@/components/Skills";
 import ToolsKit from "@/components/ToolsKit";
 import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
@@ -20,6 +21,7 @@ export default function Home() {
         <Statement />
         <About />
         <WhatIDo />
+        <Skills />
         <ToolsKit />
         <Projects />
         <Experience />
