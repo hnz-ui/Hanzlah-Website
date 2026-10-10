@@ -1,19 +1,21 @@
 @import "tailwindcss";
 
-/* ───────── Proxio-style theme ─────────
-   Pure black ground, dark surfaces with hairline borders, white ink
-   with gray two-tone headlines, chip labels, outlined pill buttons. */
+/* ───────── Light editorial system (per ui-ux-pro-max) ─────────
+   Zinc-light ground, near-black ink, electric blue default accent,
+   white cards with visible hairline borders, bold grotesk type.
+   Each service page overrides --acc for its own accent. */
 
 :root {
-  --bg: #050505;
-  --surface: #0f0f0e;
-  --surface-2: #171716;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.22);
-  --ink: #f4f4f2;
-  --mut: #9b9b97;
-  --dim: #6f6f6b;
-  --accent: #cfc3fb;
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --surface-2: #f4f4f5;
+  --border: #e4e4e7;
+  --border-strong: #18181b;
+  --ink: #09090b;
+  --mut: #475569;
+  --dim: #8e8e96;
+  --acc: #2563eb;
+  --acc-soft: #eff4ff;
 }
 
 @theme inline {
@@ -25,7 +27,8 @@
   --color-ink: var(--ink);
   --color-mut: var(--mut);
   --color-dim: var(--dim);
-  --color-accent: var(--accent);
+  --color-acc: var(--acc);
+  --color-acc-soft: var(--acc-soft);
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 }
@@ -33,7 +36,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
@@ -45,103 +48,111 @@ body {
 }
 
 ::selection {
-  background: var(--accent);
-  color: #191129;
+  background: var(--acc);
+  color: #fff;
 }
 
 /* ───────── Type ───────── */
-
 .display {
   font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.04;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+}
+.tw { color: var(--ink); }
+.tg { color: var(--dim); }
+.mark-acc {
+  color: var(--acc);
 }
 
-/* Two-tone headline halves */
-.tw {
-  color: var(--ink);
-}
-.tg {
-  color: var(--dim);
-}
-
-/* ───────── Chip (section label pill) ───────── */
+/* ───────── Chip ───────── */
 .chip {
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
   border-radius: 9999px;
-  background: #1b1b1a;
+  background: var(--surface);
   border: 1px solid var(--border);
-  color: #cfcfca;
+  color: var(--mut);
   padding: 0.45rem 1rem;
   font-size: 0.85rem;
 }
 
-/* ───────── Outlined pill button ───────── */
+/* ───────── Buttons ───────── */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.55em;
-  border-radius: 9999px;
-  border: 1px solid var(--border-strong);
-  color: var(--ink);
-  background: transparent;
-  padding: 0.85rem 1.6rem;
+  border-radius: 0.65rem;
+  border: 1.5px solid var(--border-strong);
+  background: var(--ink);
+  color: #fff;
+  padding: 0.8rem 1.5rem;
   font-size: 0.95rem;
-  transition:
-    background 0.25s,
-    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.25s;
+  font-weight: 600;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s;
 }
 .btn:hover {
-  background: rgba(255, 255, 255, 0.07);
-  transform: translateY(-2px);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--acc);
 }
-.btn--solid {
-  background: var(--ink);
-  color: #0a0a0a;
-  border-color: var(--ink);
-}
-.btn--solid:hover {
-  background: #dcdcd8;
+.btn--ghost {
+  background: var(--surface);
+  color: var(--ink);
 }
 
 /* ───────── Card ───────── */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 1.25rem;
-  transition:
-    border-color 0.35s,
-    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    background 0.35s;
+  border-radius: 0.9rem;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s, border-color 0.25s;
 }
-.card:hover {
-  border-color: rgba(255, 255, 255, 0.18);
-  background: var(--surface-2);
-  transform: translateY(-3px);
+.card--lift:hover {
+  transform: translate(-3px, -3px);
+  border-color: var(--border-strong);
+  box-shadow: 6px 6px 0 var(--acc);
 }
 
-/* Soft glow used behind the contact panel */
-.glow {
-  background:
-    radial-gradient(60% 50% at 50% 0%, rgba(255, 255, 255, 0.07), transparent 70%),
-    var(--surface);
+/* ───────── Hero texture: faint grid + floating color blobs ───────── */
+.grid-bg {
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(75% 70% at 50% 30%, black 55%, transparent 100%);
+  -webkit-mask-image: radial-gradient(75% 70% at 50% 30%, black 55%, transparent 100%);
+}
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  opacity: 0.35;
+  animation: drift 16s ease-in-out infinite alternate;
+}
+@keyframes drift {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(40px, -30px) scale(1.15); }
 }
 
-/* ───────── Hero glow ───────── */
-.hero-glow {
-  background:
-    radial-gradient(50% 42% at 50% 0%, rgba(207, 195, 251, 0.10), transparent 70%),
-    radial-gradient(70% 55% at 50% 8%, rgba(255, 255, 255, 0.06), transparent 70%);
+/* ───────── Service-visual animations ───────── */
+@keyframes caret {
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.caret { animation: caret 1.1s steps(1) infinite; }
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(var(--r)) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(var(--r)) rotate(-360deg); }
+}
+.orbit {
+  animation: orbit var(--d, 14s) linear infinite;
 }
 
-/* ───────── Tools marquee ─────────
-   Pure CSS loop; the track holds the list twice and slides half its
-   width. Faded edges via mask. Reduced motion = static row. */
+/* ───────── Marquee ───────── */
 .marquee {
   overflow: hidden;
   mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
@@ -153,70 +164,34 @@ body {
   width: max-content;
   animation: marquee 36s linear infinite;
 }
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
+.marquee:hover .marquee-track { animation-play-state: paused; }
 @keyframes marquee {
-  to {
-    transform: translateX(calc(-50% - 0.5rem));
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-  }
+  to { transform: translateX(calc(-50% - 0.5rem)); }
 }
 
-/* ───────── Counters (unchanged mechanics) ───────── */
-
+/* ───────── Counters ───────── */
 @property --n {
   syntax: "<integer>";
   inherits: true;
   initial-value: 0;
 }
-
-@keyframes count {
-  from {
-    --n: 0;
-  }
-  to {
-    --n: var(--target);
-  }
-}
-
-.stat-num::after {
-  counter-reset: n var(--target);
-  content: counter(n);
-}
-
+@keyframes count { from { --n: 0; } to { --n: var(--target); } }
+.stat-num::after { counter-reset: n var(--target); content: counter(n); }
 @supports (animation-timeline: view()) {
   .stat-num {
     animation: count 1s linear both;
     animation-timeline: view();
     animation-range: entry 10% entry 60%;
   }
-  .stat-num::after {
-    counter-reset: n var(--n);
-  }
+  .stat-num::after { counter-reset: n var(--n); }
 }
 
-/* ───────── Motion (visible base state, as before) ───────── */
-
+/* ───────── Motion (visible base state) ───────── */
 @keyframes riseIn {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
 }
-
-.rise {
-  animation: riseIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
+.rise { animation: riseIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) both; }
 @supports (animation-timeline: view()) {
   .reveal {
     animation: riseIn linear both;
@@ -224,14 +199,9 @@ body {
     animation-range: entry 5% entry 55%;
   }
 }
-
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  .rise,
-  .reveal,
-  .stat-num {
+  html { scroll-behavior: auto; }
+  .rise, .reveal, .stat-num, .blob, .caret, .orbit, .marquee-track {
     animation: none;
   }
 }
@@ -241,9 +211,7 @@ body {
   background-image: linear-gradient(currentColor, currentColor);
   background-position: 0 100%;
   background-repeat: no-repeat;
-  background-size: 0% 1px;
+  background-size: 0% 1.5px;
   transition: background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.link-underline:hover {
-  background-size: 100% 1px;
-}
+.link-underline:hover { background-size: 100% 1.5px; }

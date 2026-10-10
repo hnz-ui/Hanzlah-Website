@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Inter, Inter_Tight } from "next/font/google";
+import { Archivo, Space_Grotesk } from "next/font/google";
 import { site } from "@/content";
 import "./globals.css";
 
-const body = Inter({
+const body = Archivo({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
 });
 
-const display = Inter_Tight({
+const display = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["500", "600", "700"],
   variable: "--font-display",
   display: "swap",
 });
