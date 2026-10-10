@@ -15,7 +15,7 @@ export default function ToolsWheel() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = setInterval(() => {
       if (!hover.current) setActive((a) => (a + 1) % toolWheel.length);
-    }, 3200);
+    }, 2000);
     return () => clearInterval(id);
   }, []);
 
@@ -37,7 +37,7 @@ export default function ToolsWheel() {
               <button
                 key={c.category}
                 onClick={() => setActive(i)}
-                className="display absolute left-8 top-1/2 origin-[-260px_50%] whitespace-nowrap text-left text-3xl font-bold uppercase tracking-tight transition-[transform,color,opacity] duration-500"
+                className="display absolute left-8 top-1/2 origin-[-260px_50%] whitespace-nowrap text-left text-3xl font-bold uppercase tracking-tight transition-[transform,color,opacity] duration-300"
                 style={{
                   transform: `translateY(-50%) rotate(${d * STEP}deg)`,
                   color: dist === 0 ? "var(--ink)" : "var(--dim)",
@@ -83,7 +83,7 @@ export default function ToolsWheel() {
               <li
                 key={t.name}
                 className="pop-in flex items-center gap-2.5 rounded-full border border-line bg-bg px-4 py-2"
-                style={{ animationDelay: `${i * 45}ms` }}
+                style={{ animationDelay: `${i * 30}ms` }}
               >
                 {t.icon ? (
                   <img src={t.icon} alt="" className="size-4" loading="lazy" />
